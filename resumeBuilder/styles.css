@@ -1,0 +1,337 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(img/pexels-josh-sorenson-1714202.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.nav-bar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 20px;
+}
+
+.logo{
+    width: 100px;
+    cursor:pointer;
+
+}
+
+.nav-bar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position:relative;
+
+}
+
+.nav-bar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.nav-bar ul li::after{
+    content:'';
+    height: 3px;
+    width:0;
+    background: #009688;
+    position:absolute;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+
+
+}
+
+.nav-bar ul li:hover::after{
+    width: 100%;
+}
+.content{
+    width:100%;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    text-align: center;
+    color:#fff;
+}
+
+.content h1{
+    font-size: 60px;
+    margin-top: 80px;
+
+}
+.content p{
+    margin: 20px auto;
+   /*  margin-left: 100px;
+    margin-right: 100px; */
+    font-weight: 100;
+    line-height: 25px;
+
+}
+
+.content button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin:20px 10px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color:#fff;
+    cursor:pointer;
+    position: relative;
+    border-radius: 25px;
+
+
+
+}
+
+span{
+    background: #009688;
+    height:100%;
+    width: 0;
+    border-radius:25px;
+    position: absolute;
+    left:0;
+    bottom: 0;
+    overflow: hidden;
+    z-index: -1;
+    transition: 0.5s;
+
+
+}
+
+.content button:hover span{
+    width: 100%;
+}
+
+.content button:hover{
+    border:none;
+}
+
+
+
+
+.about{
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+}
+
+.image{
+    position: absolute;
+    right:-10px;
+    
+    top:80px;
+    
+}
+
+.aboutcon{
+    position: absolute;
+    color:#fff;
+    width: 50%;
+    left : 30px;
+    margin-bottom: 10px;
+    top:50px;
+
+}
+.aboutcon h1{
+    font-size: 45px;
+    margin-bottom: 45px;
+    color: #009688;
+}
+
+.aboutcon li{
+    list-style-type: none;
+    margin-bottom: 40px;
+}
+
+.aboutcon li h2{
+    
+    padding-bottom: 5px;
+    
+    transition: 0.5s;
+}
+
+.aboutcon li h2:hover{
+    transform: scale(1);
+    margin-bottom: 20px;border-bottom: solid 2px #009688;
+}
+
+.aboutcon li p{
+    font-size: 17px;
+    color:whitesmoke;
+}
+
+
+.template{
+
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(img/depositphotos_34917617-stock-photo-engineer-working-with-new-computer.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+
+}
+
+.template h1{
+    color:#fff;
+    font-weight: bold;
+    position: absolute;
+    top: 90px;
+    right: 170px;
+    border-bottom:solid 5px #009688;
+    margin-bottom: 80px;
+
+
+}
+
+
+.template p{
+
+    color:whitesmoke;
+    position: absolute;
+    font-size: 17px;
+    line-height: 30px;
+    top:190px;
+    right: 150px;
+    width: 500px;
+    
+
+
+
+}
+
+.slider{
+    top: 90px;
+    right: 90px;
+    color:#fff;
+    width: 50%;
+
+   
+}
+
+
+
+
+
+
+
+.swiper {
+    width: 30%;
+    height: 80%;
+    position: absolute;
+    left: 100px;
+    top: 55px;
+    overflow: hidden;
+   
+    padding: 10px;
+    transition: 0.7s;
+
+
+    
+  }
+
+  .swiper:hover{
+     border:solid 5px #009688;
+     border-radius:25px;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+
+  .swiper-slide{
+    border-radius: 25px;
+    width: 200px;
+  }
+
+  .swiper-slide img{
+    border-radius: 25px;
+  }
+
+
+
+  /* .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 600px;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  } */
+
+
+.swiper-slide button{
+    position: absolute;
+    bottom: 10px;
+    width: 120px;
+    padding: 15px 0;
+    text-align: center;
+    margin:20px 10px;
+    font-weight: bold;
+    border:none;
+    background: transparent;
+    color:#fff;
+    cursor:pointer;
+    border-radius: 15px;
+    transition: 0.7s;
+}
+
+.swiper-slide button:hover{
+    
+    background: #009688;
+
+}
+
+
+
+  
+
+
