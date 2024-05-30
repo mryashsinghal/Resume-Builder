@@ -1,4 +1,5 @@
-![Screenshot 2024-01-21 192347](https://github.com/mryashsinghal/Resume-Builder/assets/152426138/54ac6a3e-031c-4065-9617-0d3273efd9b5)# Resume Builder with Shepherd Library
+
+## Resume Builder with Shepherd Library
 
 Welcome to the Resume Builder project! This is an interactive resume-building application that utilizes Shepherd.js for guided tours. This project is perfect for individuals looking to create professional resumes with ease and for developers who want to learn how to integrate guided tours into their applications.
 
@@ -19,7 +20,7 @@ Welcome to the Resume Builder project! This is an interactive resume-building ap
 - User-friendly and interactive interface
 
 ## Demo
-Check out a live demo of the application [here](https://youtu.be/upznrHXO-Dw?si=B1EpDP8iqVAwdYT6)
+Check out a live demo of the application by clicking the below image [![Screenshot 2024-01-21 192347](https://github.com/mryashsinghal/Resume-Builder/assets/152426138/54ac6a3e-031c-4065-9617-0d3273efd9b5)](https://youtu.be/upznrHXO-Dw?si=B1EpDP8iqVAwdYT6)
 
 ## Installation
 To get a local copy up and running, follow these simple steps:
