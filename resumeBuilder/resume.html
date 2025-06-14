@@ -15,8 +15,8 @@
 </head>
 
 <body>
-    <div class="nav">
-        <button id="cmd" onclick="printpdf()" class="navbtn download"><i class="fas fa-download"></i></button>
+    <div class="nav" id="navBar">
+        <button id="cmd" onclick="showDownloadModal()" class="navbtn download" title="Download"><i class="fas fa-download"></i></button>
         <form>
             <input type="hidden" id="custinfo" name="custinfo">
             <button class="navbtn document"><i class="fas fa-save"></i></button>
@@ -140,6 +140,26 @@
                 </div>
         </section>
     </div>
+
+    <!-- Download Format Modal -->
+    <div id="downloadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeDownloadModal()" title="Close">&times;</span>
+            <h3 class="modal-title"><i class="fas fa-download"></i> Download or Print Resume</h3>
+            <div class="modal-buttons">
+                <button class="modal-btn pdf" onclick="downloadPDF()">
+                    <i class="fas fa-file-pdf"></i> Download as PDF
+                </button>
+                <button class="modal-btn print" onclick="printResume()">
+                    <i class="fas fa-print"></i> Print
+                </button>
+                <!-- <button class="modal-btn docx" onclick="downloadDOCX()">
+                    <i class="fas fa-file-word"></i> Download as DOCX
+                </button> -->
+            </div>
+            <p class="modal-tip">Tip: For best print results, use Chrome or Edge browsers.</p>
+        </div>
+    </div>
 </body>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -148,5 +168,29 @@
 
 <script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
 <script src="script2.js"></script>
+
+<script>
+function showDownloadModal() {
+  document.getElementById('downloadModal').classList.add('active');
+  document.getElementById('resume').classList.add('blur');
+  var nav = document.getElementById('navBar');
+  if (nav) nav.classList.add('blur');
+}
+function closeDownloadModal() {
+  document.getElementById('downloadModal').classList.remove('active');
+  document.getElementById('resume').classList.remove('blur');
+  var nav = document.getElementById('navBar');
+  if (nav) nav.classList.remove('blur');
+}
+function downloadPDF() {
+  closeDownloadModal();
+  printpdf(); // your existing function for PDF download
+}
+function printResume() {
+  closeDownloadModal();
+  window.print();
+}
+// Optional: function downloadDOCX() { ... }
+</script>
 
 </html>
