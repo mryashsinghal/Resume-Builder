@@ -158,8 +158,6 @@ We truly appreciate your time and effort to make **Resume-Builder** better. Your
 ---
 
 <div align="center">
-  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="120" />
-  <br />
   <em><b>Thanks for being part of the Resume-Builder community!</b></em>
 </div>
 
