@@ -1,34 +1,32 @@
----
+## Contributing to Resume-Builder
 
-# 📝 Contributing to Resume-Builder
+Welcome to **Resume-Builder** — an open-source tool built to help users create professional resumes with ease and customization. Whether you're fixing a bug, improving UI, adding a new feature, or updating documentation — **we’re glad you’re here!**
 
-Welcome to **Resume-Builder** — an open-source tool built to help users create professional resumes with ease and customization. Whether you're fixing a bug, improving UI, adding a new feature, or updating documentation — **we’re glad you’re here!** 🌟
-
-Let’s work together to make job-hunting a smoother experience for everyone. 💼🚀
+Let’s work together to make job-hunting a smoother experience for everyone.
 
 ---
 
-## 📜 Code of Conduct
+## Code of Conduct
 
-Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to foster an open, welcoming, and inclusive environment.
+Please read and follow our [Code of Conduct](https://chatgpt.com/c/CODE_OF_CONDUCT.md) to foster an open, welcoming, and inclusive environment.
 
 ---
 
-## 🛠️ How You Can Contribute
+## How You Can Contribute
 
 Ways to help:
 
-* 🐛 Fix bugs or UI issues
-* ✨ Add new resume templates or design themes
-* 📚 Improve documentation
-* 💅 Enhance frontend (UX/UI improvements)
-* 🔧 Refactor or optimize backend logic
-* 🧪 Add or improve tests
-* 🔍 Review and provide feedback on PRs
+* Fix bugs or UI issues
+* Add new resume templates or design themes
+* Improve documentation
+* Enhance frontend (UX/UI improvements)
+* Refactor or optimize backend logic
+* Add or improve tests
+* Review and provide feedback on PRs
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Fork This Repository
 
@@ -70,21 +68,21 @@ git push origin feat/template-selector
 2. Click **“Compare & pull request.”**
 3. Provide a clear title and description.
 4. Link related issues (e.g., `Closes #12`).
-5. Submit for review ✅
+5. Submit for review
 
 ---
 
-## 🔍 Best Practices
+## Best Practices
 
-* ✅ Keep your commits small and focused.
-* ✅ Use clear naming conventions and comments.
-* ✅ Format your code (use Prettier, ESLint if available).
-* ✅ Avoid committing sensitive data or `.env` files.
-* ✅ Write clean, reusable components.
+* Keep your commits small and focused.
+* Use clear naming conventions and comments.
+* Format your code (use Prettier, ESLint if available).
+* Avoid committing sensitive data or `.env` files.
+* Write clean, reusable components.
 
 ---
 
-## 🧪 Testing Your Changes
+## Testing Your Changes
 
 Before submitting a PR:
 
@@ -95,7 +93,7 @@ Before submitting a PR:
 
 ---
 
-## 🐛 Reporting Issues
+## Reporting Issues
 
 Found a bug or have a suggestion? Open a GitHub Issue:
 
@@ -104,11 +102,11 @@ Found a bug or have a suggestion? Open a GitHub Issue:
 3. Add labels like `bug`, `enhancement`, or `question`.
 4. Include steps to reproduce and screenshots if possible.
 
-📌 **Wait to be assigned an issue before working on it.**
+**Wait to be assigned an issue before working on it.**
 
 ---
 
-## 🙋 First-Time Contributors
+## First-Time Contributors
 
 Welcome to open source! Here's some help:
 
@@ -120,7 +118,7 @@ Feel free to open an issue labeled `question` or `help wanted` if you get stuck.
 
 ---
 
-## ✍️ Commit Message Format
+## Commit Message Format
 
 Follow this format:
 
@@ -139,7 +137,7 @@ Examples of types:
 
 ---
 
-## ✅ PR Checklist
+## PR Checklist
 
 Before creating a pull request:
 
@@ -151,14 +149,8 @@ Before creating a pull request:
 
 ---
 
-## 🙏 Thanks for Your Contribution!
+## Thanks for Your Contribution!
 
-We truly appreciate your time and effort to make **Resume-Builder** better. Your skills help improve a tool that could help someone land their dream job. 💼✨
-
----
-
-<div align="center">
-  <em><b>Thanks for being part of the Resume-Builder community!</b></em>
-</div>
+We truly appreciate your time and effort to make **Resume-Builder** better. Your skills help improve a tool that could help someone land their dream job.
 
 ---
