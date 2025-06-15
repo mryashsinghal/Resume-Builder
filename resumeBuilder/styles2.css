@@ -168,3 +168,149 @@ transform: translate(-60%,-4.8%);
     font-size: 17px;
 }
 
+/* Modal Overlay and Blur Effect */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.45);
+  justify-content: center;
+  align-items: center;
+}
+.modal.active {
+  display: flex;
+}
+
+/* Blur effect for background when modal is open */
+.blur {
+  filter: blur(5px) brightness(0.9);
+  transition: filter 0.3s;
+  pointer-events: none;
+  user-select: none;
+}
+
+.modal-content {
+  background: #fff;
+  margin: auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  border-radius: 18px;
+  width: 95%;
+  max-width: 370px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  position: relative;
+  text-align: center;
+  animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+  from { transform: translateY(-40px) scale(0.95); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.close {
+  position: absolute;
+  top: 18px; right: 22px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close:hover { color: #e53935; }
+
+.modal-title {
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.modal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7em;
+  font-size: 1.08rem;
+  padding: 0.7em 1.2em;
+  border: none;
+  border-radius: 8px;
+  background: #f5f5f5;
+  color: #222;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.modal-btn.pdf {
+  background: #e53935;
+  color: #fff;
+}
+.modal-btn.pdf:hover {
+  background: #b71c1c;
+}
+
+.modal-btn.print {
+  background: #43a047;
+  color: #fff;
+}
+.modal-btn.print:hover {
+  background: #1b5e20;
+}
+
+.modal-btn.docx {
+  background: #1976d2;
+  color: #fff;
+}
+.modal-btn.docx:hover {
+  background: #0d47a1;
+}
+
+.modal-tip {
+  font-size: 0.95em;
+  color: #888;
+  margin-top: 0.5em;
+}
+
+@media (max-width: 500px) {
+  .modal-content {
+    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+  .modal-title { font-size: 1.05rem; }
+}
+
+@media print {
+    .nav {
+        display: none !important;
+    }
+    
+    /* Remove blur effect when printing */
+    .blur {
+        filter: none !important;
+    }
+    
+    /* Ensure the resume takes full width when printing */
+    .resume {
+        margin: 0;
+        width: 100%;
+        box-shadow: none;
+    }
+    
+    /* Remove background color when printing */
+    body {
+        background: none;
+    }
+}
+
