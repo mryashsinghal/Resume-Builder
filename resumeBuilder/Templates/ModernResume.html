@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Resume Template</title>
+  <link rel="stylesheet" href="ModernResume.css" />
+</head>
+<body>
+  <div class="controls" style="text-align:center; margin: 20px;">
+    <button onclick="toggleTheme()">Theme</button>
+    <button onclick="resetContent()">Reset</button>
+    <button onclick="togglePreview()">Preview</button>
+    <button onclick="window.print()">Print</button>
+    <button onclick="switchTemplate()">Switch Template</button>
+    <button onclick="exportJSON()">Export JSON</button>
+    <input type="file" onchange="importJSON(event)" accept=".json">
+  </div>
+
+  <div id="completion-status" style="text-align:center; font-weight:bold;">Completion: 0%</div>
+
+  <div class="resume-container">
+    <aside class="sidebar">
+      <div class="contact">
+        <h2>Contact</h2>
+        <p contenteditable="true">Email: [your email]</p>
+        <p contenteditable="true">Phone: [your phone number]</p>
+        <p contenteditable="true">Location: [your location]</p>
+      </div>
+      <div class="skills">
+        <h2>Skills</h2>
+        <ul contenteditable="true">
+          <li>[Skill 1]</li>
+          <li>[Skill 2]</li>
+          <li>[Skill 3]</li>
+        </ul>
+      </div>
+      <div class="links">
+        <h2>Links</h2>
+        <p contenteditable="true"><a href="#">GitHub</a></p>
+        <p contenteditable="true"><a href="#">Portfolio</a></p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h1 contenteditable="true" id="animated-name">[Your Name]</h1>
+        <p contenteditable="true">[Your Title]</p>
+      </header>
+
+      <section class="education">
+        <h2>Education</h2>
+        <div contenteditable="true">
+          <h3>[Institute Name]</h3>
+          <p>[Degree / Program]</p>
+          <p>[Year Range]</p>
+        </div>
+      </section>
+
+      <section class="experience">
+        <h2>Experience</h2>
+        <div contenteditable="true">
+          <h3>[Job Title, Company]</h3>
+          <p>[Job Description]</p>
+        </div>
+      </section>
+
+      <section class="projects">
+        <h2>Projects</h2>
+        <ul contenteditable="true">
+          <li><strong>[Project Title]</strong>: [Short Description]</li>
+        </ul>
+      </section>
+
+      <section class="custom-section" id="custom-section">
+        <h2 contenteditable="true">[Custom Section]</h2>
+        <div contenteditable="true">[Add your own content]</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="ModernResume.js"></script>
+</body>
+</html>
+
+

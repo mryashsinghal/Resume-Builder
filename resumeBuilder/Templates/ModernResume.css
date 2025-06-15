@@ -1,0 +1,162 @@
+/* Base Layout */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f4f4f4;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+.resume-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  margin: 20px auto;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 30%;
+  padding: 20px;
+  background: #eef4fa;
+  box-sizing: border-box;
+}
+
+.main-content {
+  width: 70%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+header h1#animated-name {
+  overflow: hidden;
+  border-right: 3px solid orange;
+  white-space: nowrap;
+  animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+}
+
+/* Editable Fields */
+[contenteditable="true"] {
+  display: inline-block;
+  padding: 5px;
+  min-height: 1.5em;
+  border-radius: 5px;
+  transition: background 0.2s ease;
+  outline: none;
+  word-break: break-word;
+  background: rgba(255, 255, 200, 0.4);
+  margin-bottom: 5px;
+}
+
+[contenteditable="true"]:focus {
+  background: #fff9c4;
+  outline: 2px dashed #ffecb3;
+}
+
+/* Controls */
+.controls {
+  text-align: center;
+  margin: 20px;
+}
+
+.controls button, .controls input[type=\"file\"] {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background: #555;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-theme .resume-container {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-theme .sidebar {
+  background: #2a2a2a;
+}
+
+body.dark-theme [contenteditable=\"true\"] {
+  background: rgba(50, 50, 50, 0.4);
+}
+
+/* Preview Mode */
+body.preview-mode [contenteditable=\"true\"] {
+  background: transparent !important;
+  border: none !important;
+  cursor: default !important;
+}
+
+/* Completion Tracker */
+#completion-status {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .resume-container {
+    flex-direction: column;
+  }
+
+  .sidebar, .main-content {
+    width: 100%;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .controls,
+  .controls button,
+  input[type=\"file\"],
+  #completion-status {
+    display: none !important;
+  }
+
+  .resume-container {
+    box-shadow: none;
+    margin: 0;
+    width: 100%;
+  }
+
+  [contenteditable=\"true\"] {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+}
+
+/* Typing Animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent }
+  50% { border-color: orange }
+}
+
