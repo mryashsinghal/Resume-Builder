@@ -144,12 +144,40 @@ tour.addStep({
     ],
 });
 
-
-
-
-
-
 // Starting the tour on page load
 window.onload = () => {
-    tour.start();
+    const username = localStorage.getItem("user");
+    const createButton = document.querySelector(".create-free");
+    if(username == null || username == undefined){
+        tour.start();
+        createButton.textContent  = "Try It Now";
+        const hoverSpan = document.createElement('span');
+        hoverSpan.classList.add('hover-bg');
+        createButton.appendChild(hoverSpan);
+    }
 };
+
+// Event listener to handle the "Sign Up" link behavior
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelector(".nav-bar ul");
+    const signupLink = navLinks.querySelector("a[href='Auth.html']:last-child");
+    const loginButton = document.querySelector(".login-page");
+
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      signupLink.textContent = "Logout";
+      signupLink.href = "#"; 
+
+      if (loginButton) loginButton.style.display = "none";
+
+      // Logout behavior
+      signupLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        alert("You have been logged out.");
+        window.location.reload();
+      });
+    }
+});

@@ -179,6 +179,7 @@ window.onload = () => {
 
 
 function printpdf() {
+    const token = localStorage.getItem("token");
     var content = document.getElementById("resume");
 
     const allButtons = document.querySelectorAll("#print button");
@@ -197,9 +198,15 @@ function printpdf() {
         input.classList.remove("none");
     })
 
-    html2pdf(content, {
-        html2canvas: { scale: 1, logging: true, dpi: 500 }
-    });
+    if (token === null) {
+        alert("Please login to download your resume!");
+        return;
+    }
+    else{
+        html2pdf(content, {
+            html2canvas: { scale: 1, logging: true, dpi: 500 }
+        });
+    }
 }
 
 function addedu() {
