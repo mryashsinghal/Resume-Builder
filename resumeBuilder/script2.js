@@ -6,7 +6,8 @@ const tour = new Shepherd.Tour({
         },
         classes: 'shepherd-theme-default',
         scrollTo: { behavior: 'smooth', block: 'center' }
-    }
+    },
+ 
 });
 
 //Adding Tour Steps

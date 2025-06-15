@@ -329,9 +329,43 @@ span{
     background: #009688;
 
 }
+  .shepherd-theme-default  {
+  backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.1); /* or dark: rgba(0,0,0,0.3) */
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 32px rgba(232, 237, 237, 0.788) ;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
 
+.shepherd-theme-default .shepherd-header{
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 
+.shepherd-theme-default .shepherd-text {
+  color: #f0f0f0;
+  font-size: 1rem;
+  font-weight: bold;
+}
 
-  
+.shepherd-theme-default .shepherd-button {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 0.5rem;
+  padding: 8px 16px;
+  transition: 0.2s;
+}
+
+.shepherd-theme-default .shepherd-button:hover {
+  background: rgba(255, 255, 255, 0.76);
+  color: #000;
+  font-weight: bold;
+}
 
 
