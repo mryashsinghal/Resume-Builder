@@ -24,7 +24,23 @@ tour.addStep({
       },
       text: "Next",
     },
-  ],
+
+    buttons: [
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
+                return this.next();
+            },
+            text: 'Next',
+        },
+    ],
+
 });
 
 tour.addStep({
@@ -42,13 +58,30 @@ tour.addStep({
       classes: "shepherd-button-secondary",
       text: "Back",
     },
-    {
-      action() {
-        return this.next();
-      },
-      text: "Next",
-    },
-  ],
+
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
+                return this.next();
+            },
+            text: 'Next',
+        },
+    ],
+
 });
 tour.addStep({
   title: "Create For Free",
@@ -71,7 +104,30 @@ tour.addStep({
       },
       text: "Next",
     },
-  ],
+
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
+                return this.next();
+            },
+            text: 'Next',
+        },
+    ],
+
 });
 tour.addStep({
   title: "Login",
@@ -88,13 +144,30 @@ tour.addStep({
       classes: "shepherd-button-secondary",
       text: "Back",
     },
-    {
-      action() {
-        return this.next();
-      },
-      text: "Next",
-    },
-  ],
+
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
+                return this.next();
+            },
+            text: 'Next',
+        },
+    ],
+
 });
 tour.addStep({
   title: "Template Library",
@@ -117,7 +190,30 @@ tour.addStep({
       },
       text: "Next",
     },
-  ],
+
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
+                return this.next();
+            },
+            text: 'Next',
+        },
+    ],
+
 });
 tour.addStep({
   title: "Select Button",
@@ -134,13 +230,30 @@ tour.addStep({
       classes: "shepherd-button-secondary",
       text: "Back",
     },
-    {
-      action() {
-        return this.next();
-      },
-      text: "Got it",
-    },
-  ],
+
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
+                return this.next();
+            },
+            text: 'Got it',
+        },
+    ],
+
 });
 
 // Starting the tour on page load
