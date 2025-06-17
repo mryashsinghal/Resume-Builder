@@ -424,12 +424,39 @@ span {
     background: #009688;
 }
 
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        gap: 30px;
-    }
-    .footer-column {
-        min-width: 100%;
-    }
+.social-media a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 20px;
+    color: #888;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-media a:hover {
+    transform: scale(1.2);
+}
+
+.social-media a[aria-label="Facebook"]:hover {
+    color: #1877f2;
+    /* Facebook Blue */
+}
+
+.social-media a[aria-label="Twitter"]:hover {
+    color: #1da1f2;
+    /* Twitter Blue */
+}
+
+.social-media a[aria-label="Instagram"]:hover {
+    color: #e1306c;
+    /* Instagram Pink */
+}
+
+.social-media a[aria-label="LinkedIn"]:hover {
+    color: #0077b5;
+    /* LinkedIn Blue */
+}
+
+.social-media a[aria-label="YouTube"]:hover {
+    color: #ff0000;
+    /* YouTube Red */
 }
