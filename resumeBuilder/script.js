@@ -21,6 +21,13 @@ tour.addStep({
     buttons: [
         {
             action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
                 return this.next();
             },
             text: 'Next',
@@ -41,7 +48,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
@@ -64,7 +78,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
@@ -87,7 +108,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
@@ -110,7 +138,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
@@ -133,7 +168,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
