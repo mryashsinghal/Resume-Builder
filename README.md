@@ -1,4 +1,6 @@
-## Interactive Resume Builder
+<div align="center">
+   ![Logo](./logo.svg)
+</div>
 
 Welcome to the Interactive Resume Builder project! This is an interactive resume-building application that utilizes Shepherd.js for guided tours. This project is perfect for individuals looking to create professional resumes with ease and for developers who want to learn how to integrate guided tours into their applications.
 
