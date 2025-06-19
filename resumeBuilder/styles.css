@@ -13,9 +13,9 @@
 }
 
 .nav-bar {
-    width: 85%;
+    width: 90%;
     margin: auto;
-    padding: 35px 0;
+    padding: 30px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,7 +23,7 @@
 }
 
 .logo {
-    width: 100px;
+    width: 200px;
     cursor: pointer;
 }
 
