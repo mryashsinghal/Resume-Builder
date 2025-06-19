@@ -10,7 +10,33 @@ const tour = new Shepherd.Tour({
  
 });
 
-//Adding Tour Steps
+//Helper function to add Skip button to steps
+function getStepButtons(hasNext, hasBack) {
+    const buttons = [];
+    if (hasBack) {
+        buttons.push({
+            action() { return this.back(); },
+            classes: 'shepherd-button-secondary',
+            text: 'Back',
+        });
+    }
+    if (hasNext) {
+        buttons.push({
+            action() { return this.next(); },
+            text: 'Next',
+        });
+    }
+    // Add Skip button to all but last step
+    buttons.push({
+        action() { return this.cancel(); },
+        classes: 'shepherd-button-secondary',
+        text: 'Skip',
+    });
+    return buttons;
+}
+
+//Clear previous steps
+if (tour.steps) tour.steps = [];
 
 tour.addStep({
     title: 'Welcome to the Resume Page',
@@ -19,14 +45,7 @@ tour.addStep({
         element: '.main-body',
         on: 'top',
     },
-    buttons: [
-        {
-            action() {
-                return this.next();
-            },
-            text: 'Next',
-        },
-    ],
+    buttons: getStepButtons(true, false),
 });
 
 tour.addStep({
@@ -36,22 +55,9 @@ tour.addStep({
         element: '.name',
         on: 'bottom',
     },
-    buttons: [
-        {
-            action() {
-                return this.back();
-            },
-            classes: 'shepherd-button-secondary',
-            text: 'Back',
-        },
-        {
-            action() {
-                return this.next();
-            },
-            text: 'Next',
-        },
-    ],
+    buttons: getStepButtons(true, true),
 });
+
 tour.addStep({
     title: 'Adding Skill',
     text: 'Click Here To Add Skills',
@@ -59,21 +65,7 @@ tour.addStep({
         element: '.add-skill',
         on: 'bottom',
     },
-    buttons: [
-        {
-            action() {
-                return this.back();
-            },
-            classes: 'shepherd-button-secondary',
-            text: 'Back',
-        },
-        {
-            action() {
-                return this.next();
-            },
-            text: 'Next',
-        },
-    ],
+    buttons: getStepButtons(true, true),
 });
 
 tour.addStep({
@@ -83,21 +75,7 @@ tour.addStep({
         element: '.remove-skill',
         on: 'bottom',
     },
-    buttons: [
-        {
-            action() {
-                return this.back();
-            },
-            classes: 'shepherd-button-secondary',
-            text: 'Back',
-        },
-        {
-            action() {
-                return this.next();
-            },
-            text: 'Next',
-        },
-    ],
+    buttons: getStepButtons(true, true),
 });
 
 tour.addStep({
@@ -107,21 +85,7 @@ tour.addStep({
         element: '.download',
         on: 'right',
     },
-    buttons: [
-        {
-            action() {
-                return this.back();
-            },
-            classes: 'shepherd-button-secondary',
-            text: 'Back',
-        },
-        {
-            action() {
-                return this.next();
-            },
-            text: 'Next',
-        },
-    ],
+    buttons: getStepButtons(true, true),
 });
 
 tour.addStep({
@@ -131,22 +95,9 @@ tour.addStep({
         element: '.document',
         on: 'right',
     },
-    buttons: [
-        {
-            action() {
-                return this.back();
-            },
-            classes: 'shepherd-button-secondary',
-            text: 'Back',
-        },
-        {
-            action() {
-                return this.next();
-            },
-            text: 'Next',
-        },
-    ],
+    buttons: getStepButtons(true, true),
 });
+
 tour.addStep({
     title: 'Home Page',
     text: 'Click Here To Navigate To Home Page',
@@ -156,28 +107,26 @@ tour.addStep({
     },
     buttons: [
         {
-            action() {
-                return this.back();
-            },
+            action() { return this.back(); },
             classes: 'shepherd-button-secondary',
             text: 'Back',
         },
         {
-            action() {
-                return this.next();
-            },
+            action() { return this.cancel(); },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip',
+        },
+        {
+            action() { return this.next(); },
             text: 'Got it',
         },
     ],
 });
 
-
-
 // Starting the tour on page load
 window.onload = () => {
     tour.start();
 };
-
 
 function printpdf() {
     var content = document.getElementById("resume");
@@ -230,7 +179,6 @@ function remedu(event) {
     saveresume();
 }
 
-
 function addskill() {
     const head = document.createElement('div');
     document.getElementById("skills").appendChild(head);
@@ -258,7 +206,6 @@ function remskill(event) {
     saveresume();
 }
 
-
 function addLang() {
     const head = document.createElement('div');
     document.getElementById("languages").appendChild(head);
@@ -285,7 +232,6 @@ function remLang(event) {
     saveresume();
 }
 
-
 function addAch() {
     const head = document.createElement('div');
     document.getElementById("achievement").appendChild(head);
@@ -311,7 +257,6 @@ function remAch(event) {
     }
     saveresume();
 }
-
 
 function addInt() {
     const head = document.createElement('div');
