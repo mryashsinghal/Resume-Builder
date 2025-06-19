@@ -6,7 +6,8 @@ const tour = new Shepherd.Tour({
         },
         classes: 'shepherd-theme-default',
         scrollTo: { behavior: 'smooth', block: 'center' }
-    }
+    },
+ 
 });
 
 //Helper function to add Skip button to steps
