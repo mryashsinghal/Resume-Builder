@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login & Signup</title>
+  <link rel="stylesheet" href="Auth.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="left-box">
+      <img src="img/auth.png" alt="Auth Visual" />
+    </div>
+    <div class="form-box" id="formBox">
+      <h2 id="formTitle">Login</h2>
+      <form id="authForm">
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="input-group">
+          <label id="usernameLabel" style="display: none;">Username</label>
+          <input type="text" id="username" style="display: none;" />
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="password" required />
+        </div>
+        <div class="input-group" id="confirmPasswordGroup" style="display: none;">
+          <label>Confirm Password</label>
+          <input type="password" id="confirmPassword" />
+        </div>
+        <p id="errorMsg"></p>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="toggle-text">
+        Don't have an account? <a href="#" id="toggleLink">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="uservalidation.js"></script>
+</body>
+</html>
