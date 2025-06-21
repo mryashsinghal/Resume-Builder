@@ -157,3 +157,36 @@ body {
     padding: 30px 20px;
   }
 }
+
+/* === Auth Provider Buttons === */
+.auth-provider a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.auth-provider a.google {
+  background-color: #db4437;
+  color: #fff;
+}
+
+.auth-provider a.google:hover {
+  background-color: #c1351d;
+}
+
+.auth-provider a.github {
+  background-color: #333;
+  color: #fff;
+}
+
+.auth-provider a.github:hover {
+  background-color: #242424;
+}
+
