@@ -14,17 +14,23 @@
 </head>
 
 <body>
+
+        <!-- Fixed Navbar -->
+    <nav class="nav-bar" id="navbar">
+    <img src="./logo.svg" class="logo" alt="Company Logo" />
+    <ul>
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#template" class="nav-link">Templates</a></li>
+        <li><a href="#testimonial" class="nav-link">Testimonial</a></li>
+    </ul>
+    <a href="Auth.html" class="signup-btn">
+        <span></span>Sign Up
+    </a>
+</nav>
+
     <div class="banner">
-        <div class="nav-bar">
-            <img src="./logo.svg" class="logo" alt="Company Logo" />
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#template">Templates</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#">Testimonial</a></li>
-                <li><a href="Auth.html">Sign Up</a></li>
-            </ul>
-        </div>
+        
         <div class="content">
             <h1>DESIGN YOUR RESUME</h1>
             <p>
@@ -157,7 +163,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
     <script src="script.js"></script>
-
+    <script src="navbar.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
             effect: "cards",

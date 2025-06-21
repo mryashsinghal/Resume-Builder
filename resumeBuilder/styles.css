@@ -12,25 +12,56 @@
     background-position: center;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fixed Navbar Styles */
 .nav-bar {
-    width: 90%;
-    margin: auto;
-    padding: 30px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    position: fixed;
     top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
+}
+
+.nav-bar.scrolled {
+    top: 0;
+    border-radius: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(15px);
 }
 
 .logo {
     width: 200px;
+    height: 50px;
     cursor: pointer;
+    filter: brightness(0) invert(1);
+}
+
+.nav-bar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
 }
 
 .nav-bar ul li {
     list-style: none;
-    display: inline-block;
-    margin: 0 20px;
     position: relative;
 }
 
@@ -38,21 +69,73 @@
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 8px;
+    position: relative;
 }
 
-.nav-bar ul li::after {
+.nav-bar ul li a::after {
     content: '';
-    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
+    height: 3px;
+    background: #00ffe5;
+    transition: width 0.3s ease;
+}
+
+.nav-bar ul li a:hover::after,
+.nav-bar ul li a.active::after {
+    width: 80%;
+}
+
+.nav-bar ul li a.active {
+    color: #00ffe5;
+    background: rgba(0, 255, 229, 0.1);
+}
+
+.nav-bar .signup-btn {
+    width: 140px;
+    padding: 12px 0;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    border-radius: 25px;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.nav-bar .signup-btn span {
     background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
     position: absolute;
     left: 0;
-    bottom: -10px;
+    bottom: 0;
+    z-index: -1;
     transition: 0.5s;
 }
 
-.nav-bar ul li:hover::after {
+.nav-bar .signup-btn:hover span {
     width: 100%;
+}
+
+.nav-bar .signup-btn:hover {
+    border: 2px solid #009688;
+    transform: translateY(-2px);
 }
 
 .content {

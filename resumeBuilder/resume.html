@@ -16,6 +16,20 @@
 </head>
 
 <body>
+    <!-- Main Navigation Bar -->
+    <nav class="main-nav-bar" id="mainNavbar">
+        <img src="./logo.svg" class="logo" alt="Company Logo" />
+        <ul>
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="index.html#template" class="nav-link">Templates</a></li>
+            <li><a href="index.html#about" class="nav-link">About</a></li>
+            <li><a href="index.html#testimonial" class="nav-link">Testimonial</a></li>
+        </ul>
+        <a href="Auth.html" class="signup-btn">
+            <span></span>Sign Up
+        </a>
+    </nav>
+
     <div class="nav" id="navBar">
         <button id="cmd" onclick="showDownloadModal()" class="navbtn download" title="Download"><i class="fas fa-download"></i></button>
         <form>
@@ -192,6 +206,7 @@ function printResume() {
   window.print();
 }
 // Optional: function downloadDOCX() { ... }
+
 </script>
 
 </html>
