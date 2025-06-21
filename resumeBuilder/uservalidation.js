@@ -41,7 +41,7 @@ authForm.addEventListener("submit", async (e) => {
 
   // Basic signup password confirmation check
   if (isSignup && password.value !== confirmPassword.value) {
-    errorMsg.textContent = "Passwords are not matching.";
+    errorMsg.textContent = "Passwords are not same.";
     return;
   }
 
