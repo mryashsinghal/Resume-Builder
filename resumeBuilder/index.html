@@ -2,168 +2,398 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Builder</title>
-    <link rel="shortcut icon" href="./Rb.png" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume Builder</title>
+  <link rel="shortcut icon" href="./Rb.png" type="image/x-icon">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    .banner {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 40px;
+      background: transparent;
+    }
+
+    .nav-bar img.logo {
+      width: 120px;
+    }
+
+    .nav-bar ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav-bar a:hover {
+      color: #ffd700;
+    }
+
+    .content h1 {
+      font-size: 48px;
+      margin: 20px 0 10px;
+      animation: slideInDown 1s ease;
+    }
+
+    .content p {
+      font-size: 18px;
+      margin: 10px auto 30px;
+      max-width: 800px;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .create-free,
+    .login-page {
+      padding: 12px 30px;
+      margin: 10px;
+      font-size: 16px;
+      background: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      color: #2575fc;
+      font-weight: bold;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .create-free:hover,
+    .login-page:hover {
+      transform: scale(1.1);
+      background: #ffd700;
+      color: black;
+    }
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 60px 20px;
+      align-items: center;
+      background: #fff;
+    }
+
+    .about .image {
+      flex: 1 1 50%;
+      text-align: center;
+    }
+
+    .about .aboutcon {
+      flex: 1 1 50%;
+      padding: 20px;
+    }
+
+    .about h1 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+
+    .about li {
+      margin-bottom: 15px;
+    }
+
+    .about h2 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .template {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .template h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .template p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    .swiper {
+      width: 90%;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .swiper-slide {
+      text-align: center;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      transition: transform 0.4s;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: auto;
+    }
+
+    .swiper-slide button {
+      background: #2575fc;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      margin: 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .swiper-slide button:hover {
+      background: #6a11cb;
+    }
+
+    footer {
+      background: #222;
+      color: #ccc;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 220px;
+      margin: 10px;
+    }
+
+    .footer-column h3 {
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    .footer-column a {
+      color: #ccc;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .footer-column a:hover {
+      color: #fff;
+    }
+
+    .social-media a {
+      margin-right: 10px;
+      color: white;
+      font-size: 18px;
+    }
+
+    .footer-bottom {
+      margin-top: 20px;
+      border-top: 1px solid #444;
+      padding-top: 15px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInDown {
+      from {
+        transform: translateY(-50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="banner">
-        <div class="nav-bar">
-            <img src="./logo.svg" class="logo" alt="Company Logo" />
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#template">Templates</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#">Testimonial</a></li>
-                <li><a href="Auth.html">Sign Up</a></li>
-            </ul>
-        </div>
-        <div class="content">
-            <h1>DESIGN YOUR RESUME</h1>
-            <p>
-                Your path to career success starts with a powerful resume. Create the perfect first impression with our<br /> user-friendly resume builder. Craft resumes that stand out, highlight your
-                <br /> unique strengths, and open doors to new opportunities.
-            </p>
-            <a href="resume.html"><button type="button" class="create-free"><span></span>Create for free</button></a>
-            <a href="Auth.html"><button type="button" class="login-page"><span></span>Login</button></a>
-        </div>
+  <div class="banner">
+    <div class="nav-bar">
+      <img src="./logo.svg" class="logo" alt="Company Logo" />
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#template">Templates</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="Auth.html">Sign Up</a></li>
+      </ul>
     </div>
-
-
-    <div class="about" id="about">
-        <div class="image">
-            <img src="img/content-syndication.svg" alt="" width="700px" />
-        </div>
-        <div class="aboutcon">
-            <h1>A Quick and Easy Way To Create Your Professional Resume</h1>
-            <ul>
-                <li>
-                    <h2>Professional Resume Templates</h2>
-                    <p>
-                        Choose from over modern and professional templates, all of which can be customized to your liking.
-                    </p>
-                </li>
-                <li>
-                    <h2>Premium Feature: PDF Resume Downloads</h2>
-                    <p>
-                        Download your resume and send it straight to the hiring manager. Whatever format you choose, we've got you covered. TXT downloads are available for free for all users.
-                    </p>
-                </li>
-                <li>
-                    <h2>Robust Text Editor</h2>
-                    <p>
-                        Our text editor has everything you need to customize your resume. Choose different fonts, sizes, bullets, and much more.
-                    </p>
-                </li>
-                <li>
-                    <h2>Fast, Easy to Use, and Free to Start</h2>
-                    <p>
-                        Our resume builder lets you easily and quickly create this important document using our resume wizard
-                    </p>
-                </li>
-            </ul>
-        </div>
-
+    <div class="content">
+      <h1>DESIGN YOUR RESUME</h1>
+      <p>
+        Your path to career success starts with a powerful resume. Create the perfect first impression with our<br />
+        user-friendly resume builder. Craft resumes that stand out, highlight your<br />
+        unique strengths, and open doors to new opportunities.
+      </p>
+      <button class="create-free" onclick="navigateToResume()">Create for Free</button>
+      <button class="login-page" onclick="window.location.href='Auth.html'">Login</button>
     </div>
+  </div>
 
-    <div class="template" id="template">
-        <h1>Explore Our Resume Templates</h1>
-        <p>
-            Crafting a compelling resume is essential for achieving your career aspirations. Our collection of professionally designed resume templates simplifies the process, offering you the perfect foundation to showcase your skills and experiences.
-        </p>
-        <div class="slider">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="img/University-Student-Resume-Template-web1.jpg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/resume-template-with-photo.jpg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Resume-example-Circulair.1693324156611.svg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Professional-Elite-Resume-1-1.webp" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Resume-example-Vertical.1693324156611.svg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/University-Student-Resume-Template-web1.jpg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/academic-word-resume-template.png" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/resume-template-with-photo.jpg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
+  <div class="about" id="about">
+    <div class="image">
+      <img src="img/content-syndication.svg" alt="Content Visual" width="100%" />
     </div>
+    <div class="aboutcon">
+      <h1>A Quick and Easy Way To Create Your Professional Resume</h1>
+      <ul>
+        <li>
+          <h2>Professional Resume Templates</h2>
+          <p>Choose from over modern and professional templates, all of which can be customized to your liking.</p>
+        </li>
+        <li>
+          <h2>Premium Feature: PDF Resume Downloads</h2>
+          <p>Download your resume and send it straight to the hiring manager. TXT downloads are free for all users.</p>
+        </li>
+        <li>
+          <h2>Robust Text Editor</h2>
+          <p>Customize your resume using different fonts, sizes, bullets, and much more.</p>
+        </li>
+        <li>
+          <h2>Fast, Easy to Use, and Free to Start</h2>
+          <p>Our resume builder lets you quickly create resumes using our step-by-step wizard.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-    <!-- FOOTER START -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <img src="./logo.svg" class="logo" alt="Resume Builder Logo" />
-                <p>Craft professional resumes effortlessly using beautiful templates, fast editing tools, and one-click downloads.</p>
-                <div class="social-media">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/yash--singhal/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#template">Templates</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#">Login</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Contact</h3>
-                <p>Email: support@resumebuilder.com</p>
-                <p>Phone: +1 234 567 890</p>
-            </div>
+  <div class="template" id="template">
+    <h1>Explore Our Resume Templates</h1>
+    <p>
+      Crafting a compelling resume is essential. Our professionally designed templates simplify the process and help you
+      shine.
+    </p>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="img/University-Student-Resume-Template-web1.jpg" alt="Template 1" />
+          <button onclick="navigateToResume()">Select</button>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Resume Builder. All rights reserved.</p>
+        <div class="swiper-slide">
+          <img src="img/resume-template-with-photo.jpg" alt="Template 2" />
+          <button onclick="navigateToResume()">Select</button>
         </div>
-    </footer>
-    <!-- FOOTER END -->
+        <div class="swiper-slide">
+          <img src="img/Professional-Elite-Resume-1-1.webp" alt="Template 3" />
+          <button onclick="navigateToResume()">Select</button>
+        </div>
+        <div class="swiper-slide">
+          <img src="img/academic-word-resume-template.png" alt="Template 4" />
+          <button onclick="navigateToResume()">Select</button>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
-    <script src="script.js"></script>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <img src="./logo.svg" class="logo" alt="Resume Builder Logo" width="100" />
+        <p>Craft professional resumes effortlessly using beautiful templates and one-click downloads.</p>
+        <div class="social-media">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/yash--singhal/"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <a href="#">Home</a>
+        <a href="#template">Templates</a>
+        <a href="#about">About</a>
+        <a href="Auth.html">Login</a>
+      </div>
+      <div class="footer-column">
+        <h3>Contact</h3>
+        <p>Email: support@resumebuilder.com</p>
+        <p>Phone: +1 234 567 890</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Resume Builder. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "cards",
-            grabCursor: true,
-        });
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      effect: "cards",
+      grabCursor: true,
+      loop: true,
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+
+    function navigateToResume() {
+      const user = localStorage.getItem("user");
+      if (!user) {
+        alert("Please login to use the resume builder.");
+        window.location.href = "Auth.html";
+      } else {
+        window.location.href = "resume.html";
+      }
+    }
+  </script>
 </body>
 
 </html>
