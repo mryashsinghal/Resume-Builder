@@ -123,9 +123,61 @@ tour.addStep({
     ],
 });
 
-// Starting the tour on page load
-window.onload = () => {
+// Function to start tour manually
+function startResumeTour() {
     tour.start();
+}
+
+// Function to create and add the tour button for resume page
+function createResumeTourButton() {
+    // Check if button already exists
+    if (document.getElementById('start-resume-tour-btn')) {
+        return;
+    }
+
+    const tourButton = document.createElement('button');
+    tourButton.id = 'start-resume-tour-btn';
+    tourButton.className = 'resume-tour-button';
+    tourButton.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 9.5V6.5C15 5.67 14.33 5 13.5 5H10.5C9.67 5 9 5.67 9 6.5V9.5L3 7V9L9 11.5V22H15V11.5L21 9Z" fill="currentColor"/>
+        </svg>
+        Resume Tour
+    `;
+    tourButton.onclick = startResumeTour;
+
+    // Add the button to the navigation area (using one of the existing nav buttons as reference)
+    const existingNavBtn = document.querySelector('.navbtn');
+    if (existingNavBtn && existingNavBtn.parentElement) {
+        existingNavBtn.parentElement.appendChild(tourButton);
+    } else {
+        // Fallback: add to body if nav structure is different
+        document.body.appendChild(tourButton);
+    }
+}
+
+// Function to check if user is new to resume page
+function isFirstTimeOnResumePage() {
+    return !localStorage.getItem('hasSeenResumeTour');
+}
+
+// Function to mark user as having seen the resume tour
+function markResumeTourAsSeen() {
+    localStorage.setItem('hasSeenResumeTour', 'true');
+}
+
+// Modified window.onload - only auto-start for first-time users on resume page
+window.onload = () => {
+    // Create the tour button
+    createResumeTourButton();
+
+    // Only auto-start tour for first-time users on resume page
+    if (isFirstTimeOnResumePage()) {
+        tour.start();
+        // Mark as seen when tour completes or is cancelled
+        tour.on('complete', markResumeTourAsSeen);
+        tour.on('cancel', markResumeTourAsSeen);
+    }
 };
 
 function printpdf() {
@@ -165,6 +217,7 @@ function addedu() {
     head.innerHTML = ('<div class="edublock"><span><input type="checkbox" class="input-checkbox"></span><span class="education-head" contenteditable="true">YOUR DEGREE</span><div ><span contenteditable="true">Institute name</span> - <span contenteditable="true">Passing Year</span></div></div>');
     saveresume();
 }
+
 function remedu(event) {
     let val = 0;
     let empty = true;
@@ -219,6 +272,7 @@ function addLang() {
     head.innerHTML = ('<div class="language"><span><input type="checkbox" class="input-checkbox"></span><span contenteditable="true">LANGNAME</span> - <span contenteditable="true">level u know</span></div>');
     saveresume();
 }
+
 function remLang(event) {
     let val = 0;
     const allInputCheckboxes = event.target.parentElement.getElementsByClassName("input-checkbox");
@@ -245,6 +299,7 @@ function addAch() {
     head.innerHTML = ('<div class="achieve" ><span><input type="checkbox" class="input-checkbox"></span><span contenteditable="true">Write your achievement</span></div>');
     saveresume();
 }
+
 function remAch(event) {
     let val = 0;
     const allInputCheckboxes = event.target.parentElement.getElementsByClassName("input-checkbox");
@@ -271,6 +326,7 @@ function addInt() {
     head.innerHTML = ('<div class="achieve" ><span><input type="checkbox" class="input-checkbox"></span><span contenteditable="true">Write interest</span></div>');
     saveresume();
 }
+
 function remInt(event) {
     let val = 0;
     const allInputCheckboxes = event.target.parentElement.getElementsByClassName("input-checkbox");
@@ -310,6 +366,7 @@ function addsec() {
     }
     saveresume();
 }
+
 function remsec(event) {
     let val = 0;
     const allInputCheckboxes = event.target.parentElement.getElementsByClassName("input-checkbox");
