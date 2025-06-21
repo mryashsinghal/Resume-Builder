@@ -54,7 +54,7 @@ To make the process safe and respectful for everyone, we ask that you:
 
 ---
 
-## 🙏 Acknowledgement
+##  Acknowledgement
 
 We sincerely appreciate your contribution to the security of this project. Your efforts help us build a better and more trustworthy open-source ecosystem.
 
