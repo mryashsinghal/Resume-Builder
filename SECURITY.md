@@ -1,23 +1,23 @@
-# 🛡️ Security Policy
+#  Security Policy
 
 Thank you for taking the time to help improve the security of this project. We value the effort of security researchers and community members in making this project safe and trustworthy for everyone.
 
 ---
 
-## 🔐 Reporting a Vulnerability
+##  Reporting a Vulnerability
 
 If you discover a security issue or potential vulnerability, please report it **privately and responsibly** so we can investigate and fix it.
 
 You can report vulnerabilities through one of the following methods:
 
-- 📩 **Email**: [dpyashsinghal@gmail.com]
-- 🐛 **GitHub Issue**: Create an issue and tag it with `security` (only if the vulnerability is not sensitive or exploitable)
+-  **Email**: dpyashsinghal@gmail.com
+-  **GitHub Issue**: Create an issue and tag it with `security` (only if the vulnerability is not sensitive or exploitable)
 
 > Do not disclose security issues publicly until we have verified and addressed them.
 
 ---
 
-## ✅ Scope of Security Considerations
+##  Scope of Security Considerations
 
 This policy applies to:
 
@@ -31,7 +31,7 @@ Outside of Scope:
 
 ---
 
-## 📅 Response Timeline
+##  Response Timeline
 
 We aim to acknowledge all reports **within 3–5 business days**.
 
@@ -43,7 +43,7 @@ Once validated:
 
 ---
 
-## 📌 Responsible Disclosure Guidelines
+##  Responsible Disclosure Guidelines
 
 To make the process safe and respectful for everyone, we ask that you:
 
