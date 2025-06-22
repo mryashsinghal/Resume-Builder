@@ -38,6 +38,14 @@
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-bar ul li a i {
+    font-size: 14px;
 }
 
 .nav-bar ul li::after {
@@ -53,6 +61,10 @@
 
 .nav-bar ul li:hover::after {
     width: 100%;
+}
+
+.nav-bar ul li a:hover {
+    color: #009688;
 }
 
 .content {
