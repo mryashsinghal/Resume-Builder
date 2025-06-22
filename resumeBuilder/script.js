@@ -205,8 +205,9 @@ function createTourButton() {
     tourButton.id = 'start-tour-btn';
     tourButton.className = 'tour-button';
     tourButton.innerHTML = `
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor"/>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"></path>
         </svg>
         Take Tour
     `;
@@ -229,7 +230,31 @@ function markTourAsSeen() {
     localStorage.setItem('hasSeenTour', 'true');
 }
 
-// Modified window.onload - only auto-start for first-time users
+// Function to show a subtle first-time user notification
+function showFirstTimeNotification() {
+    // Create a subtle notification element
+    const notification = document.createElement('div');
+    notification.className = 'first-time-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span>👋 New here? Take a quick tour to get started!</span>
+            <button class="notification-tour-btn" onclick="startTour()">Start Tour</button>
+            <button class="notification-dismiss" onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Auto-remove after 8 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 8000);
+}
+
+// Modified window.onload - no auto-start tour, just show notification for first-time users
 window.onload = () => {
     const username = localStorage.getItem("user");
     const createButton = document.querySelector(".create-free");
@@ -244,14 +269,19 @@ window.onload = () => {
     // Create the tour button
     createTourButton();
 
-    // Only auto-start tour for first-time users
+    // Show subtle notification for first-time users instead of auto-starting tour
     if (isFirstTimeUser()) {
-        tour.start();
-        // Mark as seen when tour completes or is cancelled
-        tour.on('complete', markTourAsSeen);
-        tour.on('cancel', markTourAsSeen);
+        showFirstTimeNotification();
+        // Mark as seen when notification is shown
+        markTourAsSeen();
     }
 };
+
+// Function to reset tour status (for testing or user preference)
+function resetTourStatus() {
+    localStorage.removeItem('hasSeenTour');
+    location.reload();
+}
 
 // Event listener to handle the "Sign Up" link behavior
 document.addEventListener("DOMContentLoaded", () => {
@@ -274,8 +304,16 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem("token");
         // Clear tour seen status on logout so new users get the tour
         localStorage.removeItem("hasSeenTour");
+        localStorage.removeItem("hasSeenResumeTour");
         alert("You have been logged out.");
         window.location.reload();
       });
+    }
+});
+
+// Add keyboard shortcut to reset tour (Ctrl+Shift+T for testing)
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key === 'T') {
+        resetTourStatus();
     }
 });

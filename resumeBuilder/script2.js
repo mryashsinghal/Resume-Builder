@@ -139,8 +139,8 @@ function createResumeTourButton() {
     tourButton.id = 'start-resume-tour-btn';
     tourButton.className = 'resume-tour-button';
     tourButton.innerHTML = `
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 9.5V6.5C15 5.67 14.33 5 13.5 5H10.5C9.67 5 9 5.67 9 6.5V9.5L3 7V9L9 11.5V22H15V11.5L21 9Z" fill="currentColor"/>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 9.5V6.5C15 5.67 14.33 5 13.5 5H10.5C9.67 5 9 5.67 9 6.5V9.5L3 7V9L9 11.5V22H15V11.5L21 9Z"/>
         </svg>
         Resume Tour
     `;
@@ -166,17 +166,40 @@ function markResumeTourAsSeen() {
     localStorage.setItem('hasSeenResumeTour', 'true');
 }
 
-// Modified window.onload - only auto-start for first-time users on resume page
+// Function to show a subtle first-time user notification for resume page
+function showFirstTimeResumeNotification() {
+    // Create a subtle notification element
+    const notification = document.createElement('div');
+    notification.className = 'first-time-resume-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span>📝 New to the resume editor? Take a quick tour!</span>
+            <button class="notification-tour-btn" onclick="startResumeTour()">Start Tour</button>
+            <button class="notification-dismiss" onclick="this.parentElement.parentElement.remove()">×</button>
+        </div>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Auto-remove after 8 seconds
+    setTimeout(() => {
+        if (notification.parentElement) {
+            notification.remove();
+        }
+    }, 8000);
+}
+
+// Modified window.onload - no auto-start tour, just show notification for first-time users on resume page
 window.onload = () => {
     // Create the tour button
     createResumeTourButton();
 
-    // Only auto-start tour for first-time users on resume page
+    // Show subtle notification for first-time users instead of auto-starting tour
     if (isFirstTimeOnResumePage()) {
-        tour.start();
-        // Mark as seen when tour completes or is cancelled
-        tour.on('complete', markResumeTourAsSeen);
-        tour.on('cancel', markResumeTourAsSeen);
+        showFirstTimeResumeNotification();
+        // Mark as seen when notification is shown
+        markResumeTourAsSeen();
     }
 };
 
@@ -394,3 +417,16 @@ function saveresume() {
     var info = document.getElementById("custinfo");
     info.value = value1;
 }
+
+// Function to reset resume tour status (for testing or user preference)
+function resetResumeTourStatus() {
+    localStorage.removeItem('hasSeenResumeTour');
+    location.reload();
+}
+
+// Add keyboard shortcut to reset tour (Ctrl+Shift+R for testing resume tour)
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.shiftKey && e.key === 'R') {
+        resetResumeTourStatus();
+    }
+});
