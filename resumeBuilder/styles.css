@@ -60,27 +60,45 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border: none;
+  background: transparent;
+  color: #fff;
+  border: 2px solid #009688;
   border-radius: 25px;
   padding: 12px 18px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
   transition: all 0.3s ease;
   z-index: 1000;
   backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.tour-button::before {
+  content: '';
+  background: #009688;
+  height: 100%;
+  width: 0;
+  border-radius: 25px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.tour-button:hover::before {
+  width: 100%;
 }
 
 .tour-button:hover {
-  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  border: none;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
 }
 
 .tour-button:active {
