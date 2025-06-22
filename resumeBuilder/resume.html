@@ -1,17 +1,27 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Resume/CV Builder</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-    <link rel="stylesheet" href="styles2.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Resume/CV Builder</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- 🔐 AUTH CHECK -->
+  <script>
+    const user = localStorage.getItem("user");
+    if (!user) {
+      alert("❌ Access denied! Please login first.");
+      window.location.href = "Auth.html";
+    }
+  </script>
+
+  <!-- STYLES -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <link rel="stylesheet" href="styles2.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
 </head>
 
 <body>
@@ -167,38 +177,101 @@
             </div>
             <p class="modal-tip">Tip: For best print results, use Chrome or Edge browsers.</p>
         </div>
+=======
+  <!-- 🔝 NAVIGATION BAR -->
+  <div class="nav" id="navBar">
+    <button id="cmd" onclick="showDownloadModal()" class="navbtn download" title="Download">
+      <i class="fas fa-download"></i>
+    </button>
+
+    <form>
+      <input type="hidden" id="custinfo" name="custinfo" />
+      <button class="navbtn document"><i class="fas fa-save"></i></button>
+    </form>
+
+    <button class="navbtn home" onclick="document.location='index.html'">
+      <i class="fas fa-home"></i>
+    </button>
+
+    <button class="navbtn logout" onclick="logout()" title="Logout">
+      <i class="fas fa-sign-out-alt"></i>
+    </button>
+
+    <span class="welcome-msg text-white mx-3">Welcome, <span id="username"></span>!</span>
+  </div>
+
+  <div class="resume" id="resume">
+    <section id="print">
+      <!-- Resume Content (Unchanged) -->
+      <!-- Keep your whole existing resume content here exactly as it is -->
+      <!-- To keep this short, I won't paste all your resume layout again -->
+      <!-- Everything inside .head, .mainbody, etc. stays the same -->
+    </section>
+  </div>
+
+  <!-- 🖨️ DOWNLOAD MODAL -->
+  <div id="downloadModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeDownloadModal()" title="Close">&times;</span>
+      <h3 class="modal-title"><i class="fas fa-download"></i> Download or Print Resume</h3>
+      <div class="modal-buttons">
+        <button class="modal-btn pdf" onclick="downloadPDF()">
+          <i class="fas fa-file-pdf"></i> Download as PDF
+        </button>
+        <button class="modal-btn print" onclick="printResume()">
+          <i class="fas fa-print"></i> Print
+        </button>
+      </div>
+      <p class="modal-tip">Tip: For best print results, use Chrome or Edge browsers.</p>
+
     </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
+  <script src="script2.js"></script>
+
+  <script>
+    function showDownloadModal() {
+      document.getElementById("downloadModal").classList.add("active");
+      document.getElementById("resume").classList.add("blur");
+      var nav = document.getElementById("navBar");
+      if (nav) nav.classList.add("blur");
+    }
+
+    function closeDownloadModal() {
+      document.getElementById("downloadModal").classList.remove("active");
+      document.getElementById("resume").classList.remove("blur");
+      var nav = document.getElementById("navBar");
+      if (nav) nav.classList.remove("blur");
+    }
+
+    function downloadPDF() {
+      closeDownloadModal();
+      printpdf(); // your existing function for PDF download
+    }
+
+    function printResume() {
+      closeDownloadModal();
+      window.print();
+    }
+
+    function logout() {
+      localStorage.removeItem("user");
+      alert("You have been logged out.");
+      window.location.href = "Auth.html";
+    }
+
+    // Display username if available
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = localStorage.getItem("user");
+      if (user) {
+        document.getElementById("username").textContent = user;
+      }
+    });
+  </script>
 </body>
-
-<script src="https://code.jquery.com/jquery-2.2.4.min.js"
-    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
-<script src="script2.js"></script>
-
-<script>
-function showDownloadModal() {
-  document.getElementById('downloadModal').classList.add('active');
-  document.getElementById('resume').classList.add('blur');
-  var nav = document.getElementById('navBar');
-  if (nav) nav.classList.add('blur');
-}
-function closeDownloadModal() {
-  document.getElementById('downloadModal').classList.remove('active');
-  document.getElementById('resume').classList.remove('blur');
-  var nav = document.getElementById('navBar');
-  if (nav) nav.classList.remove('blur');
-}
-function downloadPDF() {
-  closeDownloadModal();
-  printpdf(); // your existing function for PDF download
-}
-function printResume() {
-  closeDownloadModal();
-  window.print();
-}
-// Optional: function downloadDOCX() { ... }
-</script>
 
 </html>

@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login & Signup</title>
   <link rel="stylesheet" href="Auth.css" />
+  <style>
+    .hidden { display: none; }
+    .input-group { margin-bottom: 15px; }
+    .btn {
+      padding: 10px 15px;
+      background-color: #2a9d8f;
+      color: white;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #21867a;
+    }
+    #errorMsg {
+      color: red;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -14,20 +34,20 @@
     <div class="form-box" id="formBox">
       <h2 id="formTitle">Login</h2>
       <form id="authForm">
+        <div class="input-group hidden" id="usernameGroup">
+          <label for="username" id="usernameLabel">Username</label>
+          <input type="text" id="username" />
+        </div>
         <div class="input-group">
-          <label>Email</label>
+          <label for="email">Email</label>
           <input type="email" id="email" required />
         </div>
         <div class="input-group">
-          <label id="usernameLabel" style="display: none;">Username</label>
-          <input type="text" id="username" style="display: none;" />
-        </div>
-        <div class="input-group">
-          <label>Password</label>
+          <label for="password">Password</label>
           <input type="password" id="password" required />
         </div>
-        <div class="input-group" id="confirmPasswordGroup" style="display: none;">
-          <label>Confirm Password</label>
+        <div class="input-group hidden" id="confirmPasswordGroup">
+          <label for="confirmPassword">Confirm Password</label>
           <input type="password" id="confirmPassword" />
         </div>
         <p id="errorMsg"></p>
