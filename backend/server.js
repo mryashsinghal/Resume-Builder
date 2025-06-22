@@ -52,7 +52,7 @@ app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/auth/error' }),
   (req, res) => {
     // Successful authentication
-    res.redirect(`/auth/success?name=${encodeURIComponent(req.user.displayName)}&email=${encodeURIComponent(req.user.email)}`);
+    res.redirect('/');
   }
 );
 
@@ -65,34 +65,9 @@ app.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/auth/error' }),
   (req, res) => {
     // Successful authentication
-    res.redirect(`/auth/success?name=${encodeURIComponent(req.user.displayName)}&email=${encodeURIComponent(req.user.email)}`);
+    res.redirect('/');
   }
 );
-
-// Success page
-app.get('/auth/success', (req, res) => {
-  const name = req.query.name || 'Unknown';
-  const email = req.query.email || '';
-  res.send(`
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <title>Authentication Success</title>
-      <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
-        .success { color: green; }
-        .btn { padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
-      </style>
-    </head>
-    <body>
-      <h2 class="success">Welcome, ${name}!</h2>
-      <p>Email: ${email}</p>
-      <p>You have been successfully authenticated.</p>
-      <a href="/" class="btn">Go to Resume Builder</a>
-    </body>
-    </html>
-  `);
-});
 
 // Error page
 app.get('/auth/error', (req, res) => {
