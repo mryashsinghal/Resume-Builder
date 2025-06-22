@@ -43,6 +43,22 @@ require('./config/passport')(passport);
 // Routes
 app.use('/api/auth', authRoutes);
 
+// Get current user info
+app.get('/api/auth/user', (req, res) => {
+  console.log('Current user:', req.user); // Debug log
+  if (req.isAuthenticated()) {
+    res.json({ user: req.user });
+  } else {
+    res.json({ user: null });
+  }
+});
+
+// Logout route
+app.post('/api/auth/logout', (req, res) => {
+  req.logout(() => {
+    res.json({ success: true });
+  });
+});
 
 // Google Auth
 app.get('/auth/google',
@@ -53,7 +69,7 @@ app.get('/auth/google',
     passport.authenticate('google', { failureRedirect: '/auth/error' }),
     (req, res) => {
       // Successful authentication
-      res.redirect('/');
+      res.redirect('/user.html');
     }
   );
   
@@ -66,7 +82,7 @@ app.get('/auth/google',
     passport.authenticate('github', { failureRedirect: '/auth/error' }),
     (req, res) => {
       // Successful authentication
-      res.redirect('/');
+      res.redirect('/user.html');
     }
   );
   
