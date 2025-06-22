@@ -10,23 +10,49 @@ const path = require('path');
 dotenv.config();
 
 const app = express();
-app.use(cors());
+
+// Middleware
+app.use(cors({
+  origin: 'http://localhost:3000', // Update this to your frontend URL
+  credentials: true
+}));
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../resumeBuilder')));
+
+// Session configuration
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'your-secret-key',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+  }
+}));
+
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Passport configuration
+require('./config/passport')(passport);
 
 // Connect to MongoDB
 connectDB();
 
 // Routes
 app.use('/api/auth', authRoutes);
+
 // Google Auth
 app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile'] })
+  passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
 app.get('/auth/google/callback',
-  passport.authenticate('google', { session: false }),
+  passport.authenticate('google', { failureRedirect: '/auth/error' }),
   (req, res) => {
-    res.redirect(`/auth/success?name=${encodeURIComponent(req.user.displayName)}`);
+    // Successful authentication
+    res.redirect(`/auth/success?name=${encodeURIComponent(req.user.displayName)}&email=${encodeURIComponent(req.user.email)}`);
   }
 );
 
@@ -36,17 +62,57 @@ app.get('/auth/github',
 );
 
 app.get('/auth/github/callback',
-  passport.authenticate('github', { session: false }),
+  passport.authenticate('github', { failureRedirect: '/auth/error' }),
   (req, res) => {
-    res.redirect(`/auth/success?name=${encodeURIComponent(req.user.displayName)}`);
+    // Successful authentication
+    res.redirect(`/auth/success?name=${encodeURIComponent(req.user.displayName)}&email=${encodeURIComponent(req.user.email)}`);
   }
 );
+
 // Success page
 app.get('/auth/success', (req, res) => {
   const name = req.query.name || 'Unknown';
+  const email = req.query.email || '';
   res.send(`
-    <h2>Welcome, ${name}!</h2>
-    <a href="/">Go Back</a>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Authentication Success</title>
+      <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        .success { color: green; }
+        .btn { padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+      </style>
+    </head>
+    <body>
+      <h2 class="success">Welcome, ${name}!</h2>
+      <p>Email: ${email}</p>
+      <p>You have been successfully authenticated.</p>
+      <a href="/" class="btn">Go to Resume Builder</a>
+    </body>
+    </html>
+  `);
+});
+
+// Error page
+app.get('/auth/error', (req, res) => {
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Authentication Error</title>
+      <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        .error { color: red; }
+        .btn { padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
+      </style>
+    </head>
+    <body>
+      <h2 class="error">Authentication Failed</h2>
+      <p>There was an error during authentication. Please try again.</p>
+      <a href="/Auth.html" class="btn">Back to Login</a>
+    </body>
+    </html>
   `);
 });
 
