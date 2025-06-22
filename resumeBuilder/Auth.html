@@ -6,6 +6,7 @@
   <title>Resume Builder</title>
   <link rel="shortcut icon" href="./Rb.png" type="image/x-icon">
   <link rel="stylesheet" href="Auth.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
   <div class="container">
@@ -33,10 +34,21 @@
         </div>
         <p id="errorMsg"></p>
         <button type="submit" class="btn">Login</button>
-<div class="auth-provider">
-  <a href="/auth/google" class="google">Sign in with Google</a>
-  <a href="/auth/github" class="github">Login with GitHub</a>
-</div>
+        
+        <div class="divider">
+          <span>or</span>
+        </div>
+        
+        <div class="auth-providers">
+          <a href="/auth/google" class="auth-btn google-btn">
+            <i class="fab fa-google"></i>
+            <span>Continue with Google</span>
+          </a>
+          <a href="/auth/github" class="auth-btn github-btn">
+            <i class="fab fa-github"></i>
+            <span>Continue with GitHub</span>
+          </a>
+        </div>
       </form>
       <p class="toggle-text">
         Don't have an account? <a href="#" id="toggleLink">Sign Up</a>
