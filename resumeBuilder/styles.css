@@ -27,6 +27,13 @@
     cursor: pointer;
 }
 
+.nav-bar ul {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 .nav-bar ul li {
     list-style: none;
     display: inline-block;
@@ -58,7 +65,7 @@
 
 .tour-button {
   position: fixed;
-  top: 20px;
+  top: 70px;
   right: 20px;
   background: transparent;
   color: #fff;
