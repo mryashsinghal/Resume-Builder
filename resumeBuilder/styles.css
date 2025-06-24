@@ -22,16 +22,16 @@
     top: 20px;
 }
 
-.logo {
-    width: 200px;
-    cursor: pointer;
-}
-
 .nav-bar ul {
     margin-left: auto;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.logo {
+    width: 200px;
+    cursor: pointer;
 }
 
 .nav-bar ul li {
@@ -65,61 +65,55 @@
 
 .tour-button {
   position: fixed;
-  top: 70px;
-  right: 20px;
-  background: transparent;
+  left: 30px;
+  bottom: 30px;
+  right: auto;
+  top: auto;
+  background: linear-gradient(120deg, #009688 0%, #353d3d 100%);
   color: #fff;
-  border: 2px solid #009688;
+  border: none;
   border-radius: 25px;
-  padding: 12px 18px;
-  font-size: 14px;
-  font-weight: bold;
+  padding: 14px 22px;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: all 0.3s ease;
+  gap: 10px;
+  box-shadow: 0 6px 24px rgba(18, 46, 37, 0.18);
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
   z-index: 1000;
-  backdrop-filter: blur(10px);
-  position: relative;
-  overflow: hidden;
-}
-
-.tour-button::before {
-  content: '';
-  background: #009688;
-  height: 100%;
-  width: 0;
-  border-radius: 25px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  overflow: hidden;
-  z-index: -1;
-  transition: 0.5s;
-}
-
-.tour-button:hover::before {
-  width: 100%;
+  backdrop-filter: blur(8px);
 }
 
 .tour-button:hover {
-  border: none;
-  transform: translateY(-2px);
-}
-
-.tour-button:active {
-  transform: translateY(0);
+  background: linear-gradient(120deg, #097567 0%, #232b2b 100%);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 10px 32px rgba(18, 46, 37, 0.28);
 }
 
 .tour-button svg {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.2s ease;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s;
 }
 
 .tour-button:hover svg {
-  transform: scale(1.1);
+  transform: scale(1.15);
+}
+
+@media (max-width: 600px) {
+  .tour-button {
+    left: 10px;
+    bottom: 10px;
+    padding: 10px 14px;
+    font-size: 13px;
+    gap: 6px;
+  }
+  .tour-button svg {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 /* Hide button during tour */
