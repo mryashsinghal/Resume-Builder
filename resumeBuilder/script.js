@@ -317,3 +317,14 @@ document.addEventListener('keydown', (e) => {
         resetTourStatus();
     }
 });
+
+// Add scroll event logic to shrink/expand the tour button
+window.addEventListener('scroll', function() {
+    const btn = document.getElementById('start-tour-btn');
+    if (!btn) return;
+    if (window.scrollY > 80) {
+        btn.classList.add('tour-button--shrunk');
+    } else {
+        btn.classList.remove('tour-button--shrunk');
+    }
+});

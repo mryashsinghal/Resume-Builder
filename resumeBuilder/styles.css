@@ -73,17 +73,49 @@
   color: #fff;
   border: none;
   border-radius: 25px;
-  padding: 14px 22px;
+  padding: 12px 24px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   box-shadow: 0 6px 24px rgba(18, 46, 37, 0.18);
-  transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.2s, width 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);
   z-index: 1000;
   backdrop-filter: blur(8px);
+  overflow: hidden;
+  width: auto;
+  min-width: 0;
+  justify-content: center;
+}
+
+.tour-button span {
+  display: inline-block;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+.tour-button--shrunk {
+  width: 48px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  transition: width 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.tour-button--shrunk span {
+  display: none;
+}
+
+.tour-button--shrunk:hover {
+  width: auto;
+  padding: 12px 24px;
+}
+
+.tour-button--shrunk:hover span {
+  display: inline-block;
 }
 
 .tour-button:hover {
