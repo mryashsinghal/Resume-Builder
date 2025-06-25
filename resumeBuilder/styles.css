@@ -293,7 +293,7 @@ span {
 .swiper-slide button:hover {
   background: #009688;
 }
-
+/* footer */
 .footer {
   background-color: #0a0a0a;
   color: #fff;
@@ -536,7 +536,7 @@ span {
     font-size: 30px;
   }
   .aboutcon h2 {
-    font-size: 25px;
+    font-size: 20px;
   }
   .aboutcon p {
     font-size: 15px;
@@ -544,7 +544,26 @@ span {
 
   /* template */
   .template {
-    top: 450px;
+    top: 430px;
+  }
+  .template h1 {
+    font-size: 30px;
+  }
+  .template h1,
+  .template p {
+    width: 90%;
+    left: 20px;
+  }
+
+  .swiper {
+    width: 70%;
+    top: 380px;
+    height: 60%;
+    left: 50px;
+  }
+  /* .footer */
+  .footer {
+    top: 550px;
   }
 }
 /* ipad */
@@ -563,17 +582,17 @@ span {
   /* about page */
 
   .about .image {
-    left: 0px;
+    left: 20px;
   }
   .image img {
-    width: 90%;
+    width: 80%;
   }
   .aboutcon {
     width: 90%;
     top: 650px;
   }
   .aboutcon h1 {
-    font-size: 30px;
+    font-size: 35px;
   }
   .aboutcon h2 {
     font-size: 25px;
@@ -584,6 +603,24 @@ span {
 
   /* template page */
   .template {
-    top: 500px;
+    top: 510px;
+  }
+
+  .template h1,
+  .template p {
+    width: 90%;
+    left: 20px;
+  }
+
+  .swiper {
+    width: 60%;
+    top: 380px;
+    height: 60%;
+    left: 50px;
+  }
+
+  /* footer */
+  .footer {
+    top: 600px;
   }
 }
