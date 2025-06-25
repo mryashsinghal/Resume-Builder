@@ -7,7 +7,7 @@
 html,
 body {
   width: 100%;
-
+  background-color: #000;
   overflow-x: hidden; /* Prevent horizontal scroll */
 }
 .banner {
@@ -133,7 +133,9 @@ span {
   right: -10px;
   top: 80px;
 }
-
+.image img {
+  width: 700px;
+}
 .aboutcon {
   position: absolute;
   color: #fff;
@@ -169,7 +171,7 @@ span {
   font-size: 17px;
   color: whitesmoke;
 }
-
+/* template page */
 .template {
   width: 100%;
   height: 100vh;
@@ -507,6 +509,7 @@ span {
 
 /* mobile devices */
 @media only screen and (max-width: 480px) {
+  /* hero page */
   .content p {
     padding: 20px;
   }
@@ -516,9 +519,37 @@ span {
   .content button {
     font-size: 12px;
   }
+
+  /* about page */
+
+  .about .image {
+    left: 0px;
+  }
+  .about .image img {
+    width: 100%;
+  }
+  .aboutcon {
+    width: 90%;
+    top: 500px;
+  }
+  .aboutcon h1 {
+    font-size: 30px;
+  }
+  .aboutcon h2 {
+    font-size: 25px;
+  }
+  .aboutcon p {
+    font-size: 15px;
+  }
+
+  /* template */
+  .template {
+    top: 450px;
+  }
 }
 /* ipad */
-@media only screen and (max-width: 800px) {
+@media only screen and (min-width: 480px) and (max-width: 800px) {
+  /* content */
   .content p {
     padding: 20px;
   }
@@ -527,5 +558,32 @@ span {
   }
   .content button {
     font-size: 12px;
+  }
+
+  /* about page */
+
+  .about .image {
+    left: 0px;
+  }
+  .image img {
+    width: 90%;
+  }
+  .aboutcon {
+    width: 90%;
+    top: 650px;
+  }
+  .aboutcon h1 {
+    font-size: 30px;
+  }
+  .aboutcon h2 {
+    font-size: 25px;
+  }
+  .aboutcon p {
+    font-size: 15px;
+  }
+
+  /* template page */
+  .template {
+    top: 500px;
   }
 }
