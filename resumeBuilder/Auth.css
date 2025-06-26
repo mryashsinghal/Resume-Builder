@@ -136,6 +136,85 @@ body {
   text-decoration: underline;
 }
 
+
+/* OAuth Buttons */
+.auth-providers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.auth-btn i {
+  font-size: 18px;
+}
+
+.google-btn {
+  background-color: #fff;
+  color: #333;
+  border-color: #ddd;
+}
+
+.google-btn:hover {
+  background-color: #f8f9fa;
+  border-color: #dadce0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.github-btn {
+  background-color: #24292e;
+  color: #fff;
+  border-color: #24292e;
+}
+
+.github-btn:hover {
+  background-color: #2f363d;
+  border-color: #2f363d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.divider {
+  text-align: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #009688;
+}
+
+.divider span {
+  background: #1e1e1e;
+  padding: 0 15px;
+  color: #80cbc4;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+
 #errorMsg {
   color: #ff5252;
   font-weight: 600;
@@ -156,4 +235,32 @@ body {
   .form-box {
     padding: 30px 20px;
   }
+}
+
+/* === Legacy Auth Provider Buttons (keeping for compatibility) === */
+.auth-provider a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px 0;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+}
+
+.auth-provider a.google {
+  background-color: #db4437;
+  color: #fff;
+}
+
+.auth-provider a.google:hover {
+  background-color: #c1351d;
+}
+
+.auth-provider a.github {
+  background-color: #333;
+  color: #fff;
 }

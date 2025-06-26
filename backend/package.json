@@ -1,10 +1,19 @@
 {
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
   "dependencies": {
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "express-session": "^1.18.1",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.16.0"
+    "mongoose": "^8.16.0",
+    "passport": "^0.7.0",
+    "passport-github2": "^0.1.12",
+    "passport-google-oauth20": "^2.0.0"
   }
 }
