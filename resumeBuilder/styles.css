@@ -7,7 +7,7 @@
 .banner {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/pexels-josh-sorenson-1714202.jpg);
+    background-image: url(./bg1.svg);
     background-size: cover;
     background-position: center;
 }
@@ -58,7 +58,7 @@
 .content {
     width: 100%;
     position: absolute;
-    top: 50%;
+    top: 67%;
     transform: translateY(-50%);
     text-align: center;
     color: #fff;
@@ -166,7 +166,7 @@ span {
 .template {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(img/depositphotos_34917617-stock-photo-engineer-working-with-new-computer.jpg);
+    background-image: url(./bg01.svg);
     background-size: cover;
     background-position: center;
     position: relative;
