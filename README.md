@@ -18,10 +18,39 @@ Welcome to the Interactive Resume Builder project! This is an interactive resume
 ## Features
 
 - Create and customize professional resumes
-- Guided tour using Shepherd.js to help users understand the app's functionality
+- **Improved guided tour system** - Non-intrusive tour notifications for first-time users
+- Manual tour access via prominent tour buttons
 - Save and download resume as a PDF
 - Edit and update resume information easily
 - User-friendly and interactive interface
+- **Smart tour management** - Tours only show for new users, with manual access for returning users
+
+## Tour System
+
+The application features an improved tour system that enhances user experience:
+
+### For New Users
+- **Subtle notifications** appear instead of automatic tour start
+- Notifications auto-dismiss after 8 seconds
+- Users can choose to start the tour or dismiss the notification
+
+### For Returning Users
+- **Manual tour buttons** are always available in the top-right corner
+- No intrusive automatic tours
+- Clean, uninterrupted experience
+
+### Tour Features
+- **Homepage Tour**: Guides users through the main features and navigation
+- **Resume Editor Tour**: Shows how to use the resume building interface
+- **Responsive Design**: Tours work seamlessly on all device sizes
+- **Keyboard Shortcuts**: 
+  - `Ctrl+Shift+T`: Reset homepage tour status (for testing)
+  - `Ctrl+Shift+R`: Reset resume tour status (for testing)
+
+### Tour Management
+- Tour status is stored locally and persists across sessions
+- Tour status is cleared on logout for fresh user experience
+- Users can manually trigger tours anytime via the tour buttons
 
 ## Demo
 
