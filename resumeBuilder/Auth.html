@@ -48,12 +48,22 @@
         </div>
         <div class="input-group">
           <label for="password">Password</label>
-          <input type="password" id="password" required />
+          <div style="position: relative;">
+            <input type="password" id="password" required style="padding-right: 30px;" />
+            <i class="fas fa-eye" id="togglePassword" 
+              style="position: absolute;right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+          </div>
         </div>
+
         <div class="input-group hidden" id="confirmPasswordGroup">
           <label for="confirmPassword">Confirm Password</label>
-          <input type="password" id="confirmPassword" />
+          <div style="position: relative;">
+            <input type="password" id="confirmPassword" style="padding-right: 30px;" />
+            <i class="fas fa-eye" id="toggleConfirmPassword"
+              style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+          </div>
         </div>
+
         <p id="errorMsg"></p>
         <button type="submit" class="btn">Login</button>
 
