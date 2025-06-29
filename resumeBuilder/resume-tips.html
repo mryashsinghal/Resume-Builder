@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Tips & Templates - Resume Builder</title>
+    <link rel="shortcut icon" href="./Rb.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="resume-tips.css" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="tips-nav-bar">
+        <img src="./logo.svg" class="logo" alt="Company Logo" />
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#template">Templates</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#testimonial">Testimonial</a></li>
+            <li><a href="resume-tips.html" class="active"><i class="fas fa-lightbulb"></i> Tips & Templates</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            <li><a href="Auth.html">Sign Up</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="tips-hero">
+        <div class="hero-content">
+            <h1>Resume Tips & Templates</h1>
+            <p>Master the art of resume writing with our comprehensive guides, action verbs library, and professional templates</p>
+        </div>
+    </section>
+
+    <!-- Action Verbs Section -->
+    <section class="action-verbs-section" id="action-verbs">
+        <div class="container">
+            <h2><i class="fas fa-list-ul"></i> Action Verbs Library</h2>
+            <p class="section-description">Powerful verbs to make your resume stand out. Click any verb to copy it to your clipboard.</p>
+            
+            <div class="verbs-container">
+                <div class="verb-category">
+                    <div class="category-header" data-category="leadership">
+                        <h3><i class="fas fa-users"></i> Leadership</h3>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="verb-list">
+                        <span class="verb">Directed</span>
+                        <span class="verb">Managed</span>
+                        <span class="verb">Supervised</span>
+                        <span class="verb">Led</span>
+                        <span class="verb">Coordinated</span>
+                        <span class="verb">Orchestrated</span>
+                        <span class="verb">Mentored</span>
+                        <span class="verb">Guided</span>
+                        <span class="verb">Inspired</span>
+                        <span class="verb">Motivated</span>
+                        <span class="verb">Delegated</span>
+                        <span class="verb">Empowered</span>
+                    </div>
+                </div>
+
+                <div class="verb-category">
+                    <div class="category-header" data-category="technical">
+                        <h3><i class="fas fa-code"></i> Technical</h3>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="verb-list">
+                        <span class="verb">Developed</span>
+                        <span class="verb">Programmed</span>
+                        <span class="verb">Engineered</span>
+                        <span class="verb">Implemented</span>
+                        <span class="verb">Optimized</span>
+                        <span class="verb">Automated</span>
+                        <span class="verb">Debugged</span>
+                        <span class="verb">Integrated</span>
+                        <span class="verb">Configured</span>
+                        <span class="verb">Deployed</span>
+                        <span class="verb">Architected</span>
+                        <span class="verb">Innovated</span>
+                    </div>
+                </div>
+
+                <div class="verb-category">
+                    <div class="category-header" data-category="communication">
+                        <h3><i class="fas fa-comments"></i> Communication</h3>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="verb-list">
+                        <span class="verb">Presented</span>
+                        <span class="verb">Communicated</span>
+                        <span class="verb">Negotiated</span>
+                        <span class="verb">Collaborated</span>
+                        <span class="verb">Facilitated</span>
+                        <span class="verb">Mediated</span>
+                        <span class="verb">Persuaded</span>
+                        <span class="verb">Articulated</span>
+                        <span class="verb">Conveyed</span>
+                        <span class="verb">Demonstrated</span>
+                        <span class="verb">Explained</span>
+                        <span class="verb">Influenced</span>
+                    </div>
+                </div>
+
+                <div class="verb-category">
+                    <div class="category-header" data-category="creative">
+                        <h3><i class="fas fa-palette"></i> Creative</h3>
+                        <i class="fas fa-chevron-down arrow"></i>
+                    </div>
+                    <div class="verb-list">
+                        <span class="verb">Designed</span>
+                        <span class="verb">Created</span>
+                        <span class="verb">Conceptualized</span>
+                        <span class="verb">Illustrated</span>
+                        <span class="verb">Crafted</span>
+                        <span class="verb">Composed</span>
+                        <span class="verb">Visualized</span>
+                        <span class="verb">Innovated</span>
+                        <span class="verb">Brainstormed</span>
+                        <span class="verb">Reimagined</span>
+                        <span class="verb">Transformed</span>
+                        <span class="verb">Pioneered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Template Preview Section -->
+    <section class="template-preview-section" id="template-preview">
+        <div class="container">
+            <h2><i class="fas fa-th-large"></i> Resume Templates</h2>
+            <p class="section-description">Choose from our collection of professional resume templates designed to make you stand out.</p>
+            
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="professional">Professional</button>
+                <button class="filter-btn" data-filter="creative">Creative</button>
+                <button class="filter-btn" data-filter="modern">Modern</button>
+            </div>
+
+            <div class="templates-grid">
+                <div class="template-card" data-category="professional">
+                    <div class="template-image">
+                        <img src="img/University-Student-Resume-Template-web1.jpg" alt="Professional Template 1">
+                    </div>
+                    <div class="template-info">
+                        <h3>Professional Classic</h3>
+                        <p>Clean and professional design perfect for corporate roles</p>
+                        <button class="use-template-btn" data-template="professional-classic">Use This Template</button>
+                    </div>
+                </div>
+
+                <div class="template-card" data-category="creative">
+                    <div class="template-image">
+                        <img src="img/resume-template-with-photo.jpg" alt="Creative Template 1">
+                    </div>
+                    <div class="template-info">
+                        <h3>Creative Portfolio</h3>
+                        <p>Modern design with photo support for creative professionals</p>
+                        <button class="use-template-btn" data-template="creative-portfolio">Use This Template</button>
+                    </div>
+                </div>
+
+                <div class="template-card" data-category="modern">
+                    <div class="template-image">
+                        <img src="img/Resume-example-Circulair.1693324156611.svg" alt="Modern Template 1">
+                    </div>
+                    <div class="template-info">
+                        <h3>Modern Circular</h3>
+                        <p>Contemporary design with circular elements and clean layout</p>
+                        <button class="use-template-btn" data-template="modern-circular">Use This Template</button>
+                    </div>
+                </div>
+
+                <div class="template-card" data-category="professional">
+                    <div class="template-image">
+                        <img src="img/Professional-Elite-Resume-1-1.webp" alt="Professional Template 2">
+                    </div>
+                    <div class="template-info">
+                        <h3>Executive Elite</h3>
+                        <p>Premium professional template for senior positions</p>
+                        <button class="use-template-btn" data-template="executive-elite">Use This Template</button>
+                    </div>
+                </div>
+
+                <div class="template-card" data-category="modern">
+                    <div class="template-image">
+                        <img src="img/Resume-example-Vertical.1693324156611.svg" alt="Modern Template 2">
+                    </div>
+                    <div class="template-info">
+                        <h3>Vertical Modern</h3>
+                        <p>Unique vertical layout for standout applications</p>
+                        <button class="use-template-btn" data-template="vertical-modern">Use This Template</button>
+                    </div>
+                </div>
+
+                <div class="template-card" data-category="creative">
+                    <div class="template-image">
+                        <img src="img/academic-word-resume-template.png" alt="Creative Template 2">
+                    </div>
+                    <div class="template-info">
+                        <h3>Academic Creative</h3>
+                        <p>Perfect blend of creativity and academic professionalism</p>
+                        <button class="use-template-btn" data-template="academic-creative">Use This Template</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Do's and Don'ts Section -->
+    <section class="dos-donts-section" id="dos-donts">
+        <div class="container">
+            <h2><i class="fas fa-check-circle"></i> Resume Do's & Don'ts</h2>
+            <p class="section-description">Follow these best practices to create a winning resume that gets noticed by employers.</p>
+            
+            <div class="dos-donts-grid">
+                <div class="dos-column">
+                    <h3><i class="fas fa-thumbs-up"></i> Do's</h3>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <h4>Use Action Verbs</h4>
+                                <p>Start bullet points with strong action verbs to demonstrate impact</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <h4>Quantify Achievements</h4>
+                                <p>Include numbers, percentages, and metrics to show results</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <h4>Tailor for Each Job</h4>
+                                <p>Customize your resume for each specific position you apply for</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <h4>Keep It Concise</h4>
+                                <p>Aim for 1-2 pages maximum, focusing on relevant information</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <h4>Use Professional Email</h4>
+                                <p>Include a professional email address (firstname.lastname@email.com)</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-check"></i>
+                            <div>
+                                <h4>Proofread Carefully</h4>
+                                <p>Check for spelling, grammar, and formatting errors multiple times</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="donts-column">
+                    <h3><i class="fas fa-thumbs-down"></i> Don'ts</h3>
+                    <div class="checklist">
+                        <div class="checklist-item">
+                            <i class="fas fa-times"></i>
+                            <div>
+                                <h4>Include Personal Information</h4>
+                                <p>Avoid age, marital status, photos (unless required), or irrelevant personal details</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-times"></i>
+                            <div>
+                                <h4>Use Generic Objectives</h4>
+                                <p>Avoid vague statements like "seeking opportunities for growth"</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-times"></i>
+                            <div>
+                                <h4>List Every Job</h4>
+                                <p>Don't include irrelevant positions that don't add value</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-times"></i>
+                            <div>
+                                <h4>Use Fancy Fonts</h4>
+                                <p>Stick to professional, readable fonts like Arial, Calibri, or Times New Roman</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-times"></i>
+                            <div>
+                                <h4>Include References</h4>
+                                <p>Don't waste space with "References available upon request"</p>
+                            </div>
+                        </div>
+                        <div class="checklist-item">
+                            <i class="fas fa-times"></i>
+                            <div>
+                                <h4>Lie or Exaggerate</h4>
+                                <p>Be honest about your experience and qualifications</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="./logo.svg" class="logo" alt="Resume Builder Logo" />
+                <p>Craft professional resumes effortlessly using beautiful templates, fast editing tools, and one-click downloads.</p>
+                <div class="social-media">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/yash--singhal/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#template">Templates</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="Auth.html">Login</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p>Email: support@resumebuilder.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Resume Builder. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Verb copied to clipboard!</span>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
+    <script src="resume-tips.js"></script>
+</body>
+</html>
