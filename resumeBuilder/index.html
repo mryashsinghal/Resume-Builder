@@ -17,12 +17,12 @@
     <div class="banner">
         <div class="nav-bar">
             <img src="./logo.svg" class="logo" alt="Company Logo" />
-            <ul id="nav-links">
+            <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#template">Templates</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#">Testimonial</a></li>
-                <li id="auth-link"><a href="Auth.html">Sign Up</a></li>
+                <li><a href="Auth.html">Sign Up</a></li>
             </ul>
         </div>
         <div class="content">
@@ -32,9 +32,7 @@
                 <br /> unique strengths, and open doors to new opportunities.
             </p>
             <a href="resume.html"><button type="button" class="create-free"><span></span>Create for free</button></a>
-            <a href="Auth.html" id="login-btn"><button type="button" class="login-page"><span></span>Login</button></a>
-            <span id="user-info" style="display:none;"></span>
-            <button id="logout-btn" style="display:none; margin-left:10px;">Logout</button>
+            <a href="Auth.html"><button type="button" class="login-page"><span></span>Login</button></a>
         </div>
     </div>
 
@@ -168,40 +166,6 @@
             effect: "cards",
             grabCursor: true,
         });
-
-        // Auth UI logic
-        fetch('http://localhost:5000/api/auth/user', { credentials: 'include' })
-          .then(res => res.json())
-          .then(data => {
-            const user = data.user;
-            const navLinks = document.getElementById('nav-links');
-            const authLink = document.getElementById('auth-link');
-            const loginBtn = document.getElementById('login-btn');
-            const userInfo = document.getElementById('user-info');
-            const logoutBtn = document.getElementById('logout-btn');
-            if (user) {
-              // Show username and logout
-              if (authLink) authLink.style.display = 'none';
-              if (loginBtn) loginBtn.style.display = 'none';
-              userInfo.style.display = 'inline';
-              userInfo.textContent = `Welcome, ${user.username || user.displayName || user.email || 'User'}`;
-              logoutBtn.style.display = 'inline-block';
-            } else {
-              // Show signup/login
-              if (authLink) authLink.style.display = '';
-              if (loginBtn) loginBtn.style.display = '';
-              userInfo.style.display = 'none';
-              logoutBtn.style.display = 'none';
-            }
-          });
-        document.getElementById('logout-btn').onclick = function() {
-          fetch('http://localhost:5000/api/auth/logout', {
-            method: 'POST',
-            credentials: 'include'
-          }).then(() => {
-            window.location.reload();
-          });
-        };
     </script>
 </body>
 </html>
