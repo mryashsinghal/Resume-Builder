@@ -9,6 +9,22 @@ const email = document.getElementById("email");
 const password = document.getElementById("password");
 const confirmPassword = document.getElementById("confirmPassword");
 
+const togglePassword = document.getElementById("togglePassword");
+togglePassword.addEventListener("click", () => {
+  const isPasswordVisible = password.type === "text";
+  password.type = isPasswordVisible ? "password" : "text";
+  togglePassword.classList.toggle("fa-eye");
+  togglePassword.classList.toggle("fa-eye-slash");
+});
+
+const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+toggleConfirmPassword.addEventListener("click", () => {
+  const isVisible = confirmPassword.type === "text";
+  confirmPassword.type = isVisible ? "password" : "text";
+  toggleConfirmPassword.classList.toggle("fa-eye");
+  toggleConfirmPassword.classList.toggle("fa-eye-slash");
+});
+
 let isSignup = false;
 
 function toggleForm() {
@@ -84,4 +100,5 @@ authForm.addEventListener("submit", async (e) => {
   } catch (err) {
     errorMsg.textContent = err.message;
   }
+
 });

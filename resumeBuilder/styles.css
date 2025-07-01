@@ -342,7 +342,7 @@ span {
     gap: 50px;
 }
 #scrollToTopBtn {
-  display: none; /* Hidden by default */
+  display: none; 
   position: fixed;
   bottom: 40px;
   right: 30px;
@@ -530,7 +530,7 @@ span {
     /* Facebook Blue */
 }
 
-.social-media a[aria-label="Twitter"]:hover {
+.social-media a[aria-label="X (Twitter)"]:hover {
     color: #1da1f2;
     /* Twitter Blue */
 }
