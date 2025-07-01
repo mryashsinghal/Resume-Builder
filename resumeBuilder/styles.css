@@ -313,6 +313,15 @@ span {
   background-color: #555;
 }
 
+.bpFab {
+  left: 20px !important;
+  right: auto !important;
+}
+
+.bpWebchat {
+  left: 20px !important;
+  right: auto !important;
+}
 
 .footer::before {
     content: '';
