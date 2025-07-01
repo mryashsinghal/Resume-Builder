@@ -21,6 +21,13 @@ tour.addStep({
     buttons: [
         {
             action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
                 return this.next();
             },
             text: 'Next',
@@ -41,7 +48,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
@@ -64,7 +78,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
@@ -87,7 +108,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
@@ -110,7 +138,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
@@ -133,7 +168,14 @@ tour.addStep({
                 return this.back();
             },
             classes: 'shepherd-button-secondary',
-            text: 'Back',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
         },
         {
             action() {
@@ -145,11 +187,68 @@ tour.addStep({
 });
 
 
-
-
-
-
 // Starting the tour on page load
 window.onload = () => {
-    tour.start();
+    const username = localStorage.getItem("user");
+    const createButton = document.querySelector(".create-free");
+    if(username == null || username == undefined){
+        tour.start();
+        createButton.textContent  = "Try It Now";
+        const hoverSpan = document.createElement('span');
+        hoverSpan.classList.add('hover-bg');
+        createButton.appendChild(hoverSpan);
+    }
 };
+// Scroll to top button logic
+const scrollBtn = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function () {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    scrollBtn.style.display = "block";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+};
+
+scrollBtn.onclick = function () {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      scrollToTopBtn.style.display = "block";
+    } else {
+      scrollToTopBtn.style.display = "none";
+    }
+  };
+
+  scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+// Event listener to handle the "Sign Up" link behavior
+document.addEventListener("DOMContentLoaded", () => {
+    const navLinks = document.querySelector(".nav-bar ul");
+    const signupLink = navLinks.querySelector("a[href='Auth.html']:last-child");
+    const loginButton = document.querySelector(".login-page");
+
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      signupLink.textContent = "Logout";
+      signupLink.href = "#"; 
+
+      if (loginButton) loginButton.style.display = "none";
+
+      // Logout behavior
+      signupLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        alert("You have been logged out.");
+        window.location.reload();
+      });
+    }
+});

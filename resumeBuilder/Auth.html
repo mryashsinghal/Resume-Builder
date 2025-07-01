@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login & Signup</title>
+  <link rel="stylesheet" href="Auth.css" />
+  <style>
+    .hidden { display: none; }
+    .input-group { margin-bottom: 15px; }
+    .btn {
+      padding: 10px 15px;
+      background-color: #2a9d8f;
+      color: white;
+      border: none;
+      width: 100%;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #21867a;
+    }
+    #errorMsg {
+      color: red;
+      font-size: 0.9em;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left-box">
+      <img src="img/auth.png" alt="Auth Visual" />
+    </div>
+    <div class="form-box" id="formBox">
+      <h2 id="formTitle">Login</h2>
+      <form id="authForm">
+        <div class="input-group hidden" id="usernameGroup">
+          <label for="username" id="usernameLabel">Username</label>
+          <input type="text" id="username" />
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <div style="position: relative;">
+            <input type="password" id="password" required style="padding-right: 30px;" />
+            <i class="fas fa-eye" id="togglePassword" 
+              style="position: absolute;right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+          </div>
+        </div>
+
+        <div class="input-group hidden" id="confirmPasswordGroup">
+          <label for="confirmPassword">Confirm Password</label>
+          <div style="position: relative;">
+            <input type="password" id="confirmPassword" style="padding-right: 30px;" />
+            <i class="fas fa-eye" id="toggleConfirmPassword"
+              style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;"></i>
+          </div>
+        </div>
+
+        <p id="errorMsg"></p>
+        <button type="submit" class="btn">Login</button>
+      </form>
+      <p class="toggle-text">
+        Don't have an account? <a href="#" id="toggleLink">Sign Up</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="uservalidation.js"></script>
+</body>
+</html>

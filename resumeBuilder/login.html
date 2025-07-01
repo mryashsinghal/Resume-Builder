@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="Auth.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Enter your name" />
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      if (username) {
+        localStorage.setItem("user", username); // ✅ Set auth
+        window.location.href = "resume.html";   // 🔁 Go to resume builder
+      } else {
+        alert("Please login to see the reesume template.");
+      }
+    }
+  </script>
+</body>
+</html>
