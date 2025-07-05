@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="styles2.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
 
-  <!-- Auth Check -->
-  <script>
+  <!-- Auth Check -->  
+    <script>
     const user = localStorage.getItem("user");
     if (!user) {
       alert("❌ Access denied! Please login first.");
@@ -29,24 +29,16 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
 </head>
 
-<body>
+<body> 
   <!-- Navbar -->
   <div class="nav" id="navBar">
-    <button id="cmd" onclick="showDownloadModal()" class="navbtn download" title="Download">
-      <i class="fas fa-download"></i>
-    </button>
-    <form>
-      <input type="hidden" id="custinfo" name="custinfo" />
-      <button class="navbtn document" type="submit"><i class="fas fa-save"></i></button>
-    </form>
-    <button class="navbtn home" onclick="document.location='index.html'">
-      <i class="fas fa-home"></i>
-    </button>
-    <button class="navbtn logout" onclick="logout()" title="Logout">
-      <i class="fas fa-sign-out-alt"></i>
-    </button>
-    <span class="welcome-msg text-white mx-3">Welcome, <span id="username"></span>!</span>
-  </div>
+        <button id="cmd" onclick="showDownloadModal()" class="navbtn download" title="Download"><i class="fas fa-download"></i></button>
+        <form>
+            <input type="hidden" id="custinfo" name="custinfo">
+            <button class="navbtn document"><i class="fas fa-save"></i></button>
+        </form>
+        <button class="navbtn home" onclick="document.location='index.html'"><i class="fas fa-home"></i></button>
+    </div>
 
   <!-- Resume -->
   <div class="resume" id="resume">
@@ -134,7 +126,7 @@
   </div>
 
   <!-- Download Modal -->
-  <div id="downloadModal" class="modal">
+   <div id="downloadModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeDownloadModal()" title="Close">&times;</span>
       <h3 class="modal-title"><i class="fas fa-download"></i> Download or Print Resume</h3>
@@ -171,6 +163,8 @@
       closeDownloadModal();
       printpdf(); // Call your PDF export function from script2.js
     }
+    
+
     function printResume() {
       closeDownloadModal();
       window.print();
