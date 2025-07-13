@@ -30,14 +30,19 @@
 .nav-bar ul li {
     list-style: none;
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 15px;
     position: relative;
+    transition: all 0.3s ease;
 }
 
 .nav-bar ul li a {
     text-decoration: none;
     color: #fff;
     text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .nav-bar ul li::after {
@@ -51,9 +56,17 @@
     transition: 0.5s;
 }
 
+/* Smooth curve + glow on hover */
 .nav-bar ul li:hover::after {
     width: 100%;
 }
+
+.nav-bar ul li:hover a {
+    background-color: rgba(0, 150, 136, 0.15); 
+    color: #00bfa5; 
+    box-shadow: 0 0 10px rgba(0, 150, 136, 0.4);
+}
+
 
 .content {
     width: 100%;
