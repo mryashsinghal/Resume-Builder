@@ -266,8 +266,10 @@ window.onload = () => {
         createButton.appendChild(hoverSpan);
     }
 
-    // Create the tour button
-    createTourButton();
+    // Only create the tour button on the home page (index.html)
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/resumeBuilder/') || window.location.pathname.endsWith('/resumeBuilder/index.html')) {
+        createTourButton();
+    }
 
     // Show subtle notification for first-time users instead of auto-starting tour
     if (isFirstTimeUser()) {
