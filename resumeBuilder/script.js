@@ -127,7 +127,7 @@ tour.addStep({
 });
 tour.addStep({
     title: 'Template Library',
-    text: 'Swipe Left To Choose A Template Of Your Choice',
+    text: 'Swipe left or right to choose a template of your choice.\n\nClick the Select button below a template to use it for your resume.',
     attachTo: {
         element: '.swiper',
         on: 'right',
@@ -152,36 +152,6 @@ tour.addStep({
                 return this.next();
             },
             text: 'Next',
-        },
-    ],
-});
-tour.addStep({
-    title: 'Select Button',
-    text: 'Click Here To Select A Template',
-    attachTo: {
-        element: '.swiper',
-        on: 'bottom',
-    },
-    buttons: [
-        {
-            action() {
-                return this.back();
-            },
-            classes: 'shepherd-button-secondary',
-            text: 'Back'
-        },
-        {
-            action() {
-                return this.cancel();
-            },
-            classes: 'shepherd-button-secondary',
-            text: 'Skip'
-        },
-        {
-            action() {
-                return this.next();
-            },
-            text: 'Got it',
         },
     ],
 });
