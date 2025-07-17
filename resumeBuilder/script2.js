@@ -139,22 +139,29 @@ function printpdf() {
     let allInputCheckboxes = document.querySelectorAll(".input-checkbox");
     allInputCheckboxes.forEach(input => {
         input.classList.add("none");
-    })
+    });
 
-    allButtons.forEach(button => {
-        button.classList.remove("none");
-    })
-    allInputCheckboxes.forEach(input => {
-        input.classList.remove("none");
-    })
-
-     if (token === null) {
+    if (token === null) {
         alert("Please login to download your resume!");
+        // Show elements again if login fails
+        allButtons.forEach(button => {
+            button.classList.remove("none");
+        });
+        allInputCheckboxes.forEach(input => {
+            input.classList.remove("none");
+        });
         return;
-    }
-    else{
+    } else {
         html2pdf(content, {
             html2canvas: { scale: 1, logging: true, dpi: 500 }
+        }).then(() => {
+            // Show elements again after PDF is generated
+            allButtons.forEach(button => {
+                button.classList.remove("none");
+            });
+            allInputCheckboxes.forEach(input => {
+                input.classList.remove("none");
+            });
         });
     }
 }
