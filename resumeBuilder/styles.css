@@ -64,9 +64,9 @@
 
 .tour-button {
   position: fixed;
-  left: 30px;
+  right: 30px;
   bottom: 30px;
-  right: auto;
+  left: auto;
   top: auto;
   background: linear-gradient(120deg, #009688 0%, #353d3d 100%);
   color: #fff;
@@ -135,8 +135,9 @@
 
 @media (max-width: 600px) {
   .tour-button {
-    left: 10px;
+    right: 10px;
     bottom: 10px;
+    left: auto;
     padding: 10px 14px;
     font-size: 13px;
     gap: 6px;
