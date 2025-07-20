@@ -9,7 +9,6 @@ const tour = new Shepherd.Tour({
     }
 });
 
-
 // Adding steps to the tour
 tour.addStep({
     title: 'Welcome to the Resume Builder',
@@ -65,6 +64,69 @@ tour.addStep({
         },
     ],
 });
+
+tour.addStep({
+    title: 'Resume Tips & Templates',
+    text: 'Click here to access our comprehensive guide with action verbs, professional templates, and expert tips for creating outstanding resumes',
+    attachTo: {
+        element: 'a[href="resume-tips.html"]',
+        on: 'bottom',
+    },
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
+                return this.next();
+            },
+            text: 'Next',
+        },
+    ],
+});
+
+tour.addStep({
+    title: 'Settings & Customization',
+    text: 'Click here to customize your resume templates, colors, fonts, and layout preferences',
+    attachTo: {
+        element: 'a[href="settings.html"]',
+        on: 'bottom',
+    },
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
+                return this.next();
+            },
+            text: 'Next',
+        },
+    ],
+});
+
 tour.addStep({
     title: 'Create For Free',
     text: 'Click Here To Create A Resume For Free',
@@ -95,6 +157,7 @@ tour.addStep({
         },
     ],
 });
+
 tour.addStep({
     title: 'Login',
     text: 'Click Here To Login To The App',
@@ -125,6 +188,7 @@ tour.addStep({
         },
     ],
 });
+
 tour.addStep({
     title: 'Template Library',
     text: 'Swipe Left To Choose A Template Of Your Choice',
@@ -155,6 +219,7 @@ tour.addStep({
         },
     ],
 });
+
 tour.addStep({
     title: 'Select Button',
     text: 'Click Here To Select A Template',
@@ -186,14 +251,13 @@ tour.addStep({
     ],
 });
 
-
 // Starting the tour on page load
 window.onload = () => {
     const username = localStorage.getItem("user");
     const createButton = document.querySelector(".create-free");
     if(username == null || username == undefined){
         tour.start();
-        createButton.textContent  = "Try It Now";
+        createButton.textContent = "Try It Now";
         const hoverSpan = document.createElement('span');
         hoverSpan.classList.add('hover-bg');
         createButton.appendChild(hoverSpan);
@@ -237,18 +301,88 @@ document.addEventListener("DOMContentLoaded", () => {
     const token = localStorage.getItem("token");
 
     if (token) {
-      signupLink.textContent = "Logout";
-      signupLink.href = "#"; 
+        signupLink.textContent = "Logout";
+        signupLink.href = "#"; 
 
-      if (loginButton) loginButton.style.display = "none";
+        if (loginButton) loginButton.style.display = "none";
 
-      // Logout behavior
-      signupLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        localStorage.removeItem("user");
-        localStorage.removeItem("token");
-        alert("You have been logged out.");
-        window.location.reload();
-      });
+        // Logout behavior
+        signupLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            localStorage.removeItem("user");
+            localStorage.removeItem("token");
+            localStorage.removeItem("resumeSettings");
+            alert("You have been logged out.");
+            window.location.reload();
+        });
     }
 });
+
+// Handle template selection from Tips page
+document.addEventListener("DOMContentLoaded", () => {
+    const selectedTemplate = localStorage.getItem('selectedTemplate');
+    const selectionTime = localStorage.getItem('templateSelectionTime');
+    
+    if (selectedTemplate && selectionTime) {
+        // Check if selection was made recently (within last 5 minutes)
+        const timeDiff = new Date() - new Date(selectionTime);
+        if (timeDiff < 5 * 60 * 1000) { // 5 minutes
+            // Show a notification about the selected template
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #009688, #00bcd4);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 20px rgba(0, 150, 136, 0.3);
+                z-index: 1000;
+                font-family: 'Inter', sans-serif;
+                max-width: 300px;
+                animation: slideIn 0.5s ease-out;
+            `;
+            
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-check-circle" style="font-size: 1.2rem;"></i>
+                    <div>
+                        <strong>Template Selected!</strong><br>
+                        <small>You chose: ${selectedTemplate.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</small>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove()" style="background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; margin-left: auto;">×</button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+            
+            // Clear the selection data
+            localStorage.removeItem('selectedTemplate');
+            localStorage.removeItem('templateSelectionTime');
+        }
+    }
+});
+
+// Add CSS animation for notification
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+`;
+document.head.appendChild(style);
