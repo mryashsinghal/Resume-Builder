@@ -65,6 +65,38 @@ tour.addStep({
         },
     ],
 });
+
+tour.addStep({
+    title: 'Settings & Customization',
+    text: 'Click here to customize your resume templates, colors, fonts, and layout preferences',
+    attachTo: {
+        element: 'a[href="settings.html"]',
+        on: 'bottom',
+    },
+    buttons: [
+        {
+            action() {
+                return this.back();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Back'
+        },
+        {
+            action() {
+                return this.cancel();
+            },
+            classes: 'shepherd-button-secondary',
+            text: 'Skip'
+        },
+        {
+            action() {
+                return this.next();
+            },
+            text: 'Next',
+        },
+    ],
+});
+
 tour.addStep({
     title: 'Create For Free',
     text: 'Click Here To Create A Resume For Free',
@@ -247,6 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
         localStorage.removeItem("user");
         localStorage.removeItem("token");
+        localStorage.removeItem("resumeSettings");
         alert("You have been logged out.");
         window.location.reload();
       });
