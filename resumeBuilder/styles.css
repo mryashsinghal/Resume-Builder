@@ -139,7 +139,7 @@ span {
 .aboutcon h1 {
     font-size: 45px;
     margin-bottom: 45px;
-    color: #009688;
+    color: #15ffc8;
 }
 
 .aboutcon li {
@@ -290,7 +290,7 @@ span {
     color: #fff;
     padding: 60px 20px 40px;
     font-family: 'Inter', sans-serif;
-    border-top: 4px solid #009688;
+    border-top: 0.5px solid #009688!important;
     position: relative;
 }
 #scrollToTopBtn {
@@ -325,12 +325,11 @@ span {
 }
 
 .footer-container {
-    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 50px;
+    gap:20px;
 }
 #scrollToTopBtn {
   display: none; 
@@ -356,8 +355,10 @@ span {
 }
 
 .footer-column {
+  margin-left: 100px;
+   margin-right: 50px;
     flex: 1;
-    min-width: 200px;
+    
     padding: 0 15px;
 }
 
@@ -369,7 +370,7 @@ span {
     font-weight: 600;
     letter-spacing: 0.5px;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
 }
 
 .footer-column h2::after,
