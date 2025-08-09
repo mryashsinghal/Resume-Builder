@@ -285,6 +285,16 @@ span {
     background: #009688;
 }
 
+.bpFab {
+  left: 20px !important;
+  right: auto !important;
+}
+
+.bpWebchat {
+  left: 20px !important;
+  right: auto !important;
+}
+
 .footer {
     background-color: #0a0a0a;
     color: #fff;
