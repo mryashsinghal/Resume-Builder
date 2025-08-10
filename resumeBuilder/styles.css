@@ -341,12 +341,12 @@ span {
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: #00ffd1;
+  background-color: #009688;
   color: black;
   cursor: pointer;
   padding: 14px;
   border-radius: 50%;
-  box-shadow: 0 0 10px #00ffd1, 0 0 20px #00ffd1;
+  box-shadow: 0 0 10px #009688, 0 0 20px #009688;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -456,7 +456,7 @@ span {
 }
 
 .footer-column ul li a:hover {
-    color: #00bcd4;
+    color: #009688;
     transform: translateX(5px);
 }
 
