@@ -14,31 +14,25 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
 
   <!-- Auth Check -->  
-    <script>
+  <script>
     const user = localStorage.getItem("user");
     if (!user) {
       alert("❌ Access denied! Please login first.");
       window.location.href = "Auth.html";
     }
   </script>
-
-  <!-- STYLES -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-  <link rel="stylesheet" href="styles2.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
 </head>
 
 <body> 
   <!-- Navbar -->
   <div class="nav" id="navBar">
-        <button id="cmd" onclick="showDownloadModal()" class="navbtn download" title="Download"><i class="fas fa-download"></i></button>
-        <form>
-            <input type="hidden" id="custinfo" name="custinfo">
-            <button class="navbtn document"><i class="fas fa-save"></i></button>
-        </form>
-        <button class="navbtn home" onclick="document.location='index.html'"><i class="fas fa-home"></i></button>
-    </div>
+    <button id="cmd" onclick="showDownloadModal()" class="navbtn download" title="Download"><i class="fas fa-download"></i></button>
+    <form>
+      <input type="hidden" id="custinfo" name="custinfo">
+      <button class="navbtn document"><i class="fas fa-save"></i></button>
+    </form>
+    <button class="navbtn home" onclick="document.location='index.html'"><i class="fas fa-home"></i></button>
+  </div>
 
   <!-- Resume -->
   <div class="resume" id="resume">
@@ -58,8 +52,9 @@
 
       <div class="line"></div>
 
-      <div class="mainbody">
-        <div class="leftside">
+      <div class="mainbody" id="resumeSections">
+        <!-- LEFT COLUMN -->
+        <div class="resume-section" draggable="true" id="skillsSection">
           <span class="title">MY SKILLS</span><br><br>
           <div>
             <div class="skill"><input type="checkbox" class="input-checkbox"><i class="fas fa-chevron-circle-right"></i> <span contenteditable="true">write your skill here</span></div>
@@ -67,24 +62,30 @@
             <button type="button" class="btn btn-success" onclick="addskill()"><i class="fas fa-plus-circle"></i> Skill</button>
             <button type="button" class="btn btn-danger" onclick="remskill(event)"><i class="fas fa-minus-circle"></i> Skill</button>
           </div>
+        </div>
 
-          <br><br><span class="title">LANGUAGES</span><br><br>
+        <div class="resume-section" draggable="true" id="languagesSection">
+          <span class="title">LANGUAGES</span><br><br>
           <div>
             <div class="language"><input type="checkbox" class="input-checkbox"><span contenteditable="true">LANGNAME</span> - <span contenteditable="true">level u know</span></div>
             <div id="languages"></div>
             <button type="button" class="btn btn-success" onclick="addLang()"><i class="fas fa-plus-circle"></i> Language</button>
             <button type="button" class="btn btn-danger" onclick="remLang(event)"><i class="fas fa-minus-circle"></i> Language</button>
           </div>
+        </div>
 
-          <br><br><span class="title">ACHIEVEMENTS</span><br><br>
+        <div class="resume-section" draggable="true" id="achievementsSection">
+          <span class="title">ACHIEVEMENTS</span><br><br>
           <div>
             <div class="achieve"><input type="checkbox" class="input-checkbox"><span contenteditable="true">Write your achievement</span></div>
             <div id="achievement"></div>
             <button type="button" class="btn btn-success" onclick="addAch()"><i class="fas fa-plus-circle"></i> Achievement</button>
             <button type="button" class="btn btn-danger" onclick="remAch(event)"><i class="fas fa-minus-circle"></i> Achievement</button>
           </div>
+        </div>
 
-          <br><br><span class="title">INTERESTS</span><br><br>
+        <div class="resume-section" draggable="true" id="interestsSection">
+          <span class="title">INTERESTS</span><br><br>
           <div>
             <div class="achieve"><input type="checkbox" class="input-checkbox"><span contenteditable="true">Write interest</span></div>
             <div id="interest"></div>
@@ -95,13 +96,16 @@
 
         <div class="border"></div>
 
-        <div class="rightside">
+        <!-- RIGHT COLUMN -->
+        <div class="resume-section" draggable="true" id="profileSection">
           <span class="title">PROFILE</span><br><br>
           <div contenteditable="true">
             Here u can write the basic information about your career like your forte, something about yourself that you want your interviewer to know. Keep it brief.
           </div>
+        </div>
 
-          <br><br><span class="title">EDUCATION</span><br><br>
+        <div class="resume-section" draggable="true" id="educationSection">
+          <span class="title">EDUCATION</span><br><br>
           <div id="education">
             <div class="edublock">
               <input type="checkbox" class="input-checkbox">
@@ -111,8 +115,10 @@
           </div>
           <button type="button" class="btn btn-success" onclick="addedu()"><i class="fas fa-plus-circle"></i> Education</button>
           <button type="button" class="btn btn-danger" onclick="remedu(event)"><i class="fas fa-minus-circle"></i> Education</button>
+        </div>
 
-          <br><br><div class="new-section-div">
+        <div class="resume-section" draggable="true" id="newSection">
+          <div class="new-section-div">
             <input type="checkbox" class="input-checkbox">
             <span class="title" contenteditable="true">NEW SECTION</span><br><br>
             <div contenteditable="true">This is the description part of your new section. Stay under 400 characters.</div>
@@ -126,7 +132,7 @@
   </div>
 
   <!-- Download Modal -->
-   <div id="downloadModal" class="modal">
+  <div id="downloadModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeDownloadModal()" title="Close">&times;</span>
       <h3 class="modal-title"><i class="fas fa-download"></i> Download or Print Resume</h3>
@@ -163,8 +169,6 @@
       closeDownloadModal();
       printpdf(); // Call your PDF export function from script2.js
     }
-    
-
     function printResume() {
       closeDownloadModal();
       window.print();
@@ -175,13 +179,66 @@
       window.location.href = "Auth.html";
     }
 
-    // Display logged-in user's name
-    document.addEventListener("DOMContentLoaded", () => {
-      const user = localStorage.getItem("user");
-      if (user) {
-        document.getElementById("username").textContent = user;
+    // ✅ Drag & Drop for Resume Sections
+    const container = document.getElementById("resumeSections");
+    let draggedItem = null;
+
+    container.addEventListener("dragstart", (e) => {
+      if (e.target.classList.contains("resume-section")) {
+        draggedItem = e.target;
+        e.target.classList.add("dragging");
+        e.target.style.opacity = "0.5";
       }
     });
+
+    container.addEventListener("dragend", (e) => {
+      if (draggedItem) {
+        e.target.classList.remove("dragging");
+        e.target.style.opacity = "";
+        saveSectionOrder();
+        draggedItem = null;
+      }
+    });
+
+    container.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      const afterElement = getDragAfterElement(container, e.clientY);
+      if (afterElement == null) {
+        container.appendChild(draggedItem);
+      } else {
+        container.insertBefore(draggedItem, afterElement);
+      }
+    });
+
+    function getDragAfterElement(container, y) {
+      const draggableElements = [...container.querySelectorAll(".resume-section:not(.dragging)")];
+      return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    function saveSectionOrder() {
+      const order = [...container.querySelectorAll(".resume-section")].map(section => section.id);
+      localStorage.setItem("resumeSectionOrder", JSON.stringify(order));
+    }
+
+    function loadSectionOrder() {
+      const order = JSON.parse(localStorage.getItem("resumeSectionOrder"));
+      if (order) {
+        order.forEach(id => {
+          const section = document.getElementById(id);
+          if (section) container.appendChild(section);
+        });
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", loadSectionOrder);
   </script>
 </body>
 </html>

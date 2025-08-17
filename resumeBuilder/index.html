@@ -1,190 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Builder</title>
-    <link rel="shortcut icon" href="./Rb.png" type="image/x-icon">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Resume Builder</title>
+  <link rel="shortcut icon" href="./Rb.png" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
+  <!-- Bootstrap & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/css/shepherd.css" />
+  <link rel="stylesheet" href="styles2.css" />
+
+  <!-- Auth Check -->
+  <script>
+    const user = localStorage.getItem("user");
+    if (!user) {
+      alert("❌ Access denied! Please login first.");
+      window.location.href = "Auth.html";
+    }
+  </script>
+
+  <style>
+    /* Dragging styles */
+    .section-block {
+      margin-bottom: 20px;
+      cursor: move;
+    }
+    .section-block.dragging {
+      opacity: 0.5;
+      border: 2px dashed #4CAF50;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="banner">
-        <div class="nav-bar">
-            <img src="./logo.svg" class="logo" alt="Company Logo" />
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#template">Templates</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#">Testimonial</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="Auth.html">Sign Up</a></li>
-            </ul>
-        </div>
-        <div class="content">
-            <h1>DESIGN YOUR RESUME</h1>
-            <p>
-                Your path to career success starts with a powerful resume. Create the perfect first impression with
-                our<br /> user-friendly resume builder. Craft resumes that stand out, highlight your
-                <br /> unique strengths, and open doors to new opportunities.
-            </p>
-            <a href="resume.html"><button type="button" class="create-free"><span></span>Create for free</button></a>
-            <a href="Auth.html"><button type="button" class="login-page"><span></span>Login</button></a>
-        </div>
-    </div>
-
-
-    <div class="about" id="about">
-        <div class="image">
-            <img src="img/content-syndication.svg" alt="" width="700px" />
-        </div>
-        <div class="aboutcon">
-            <h1>A Quick and Easy Way To Create Your Professional Resume</h1>
-            <ul>
-                <li>
-                    <h2>Professional Resume Templates</h2>
-                    <p>
-                        Choose from over modern and professional templates, all of which can be customized to your
-                        liking.
-                    </p>
-                </li>
-                <li>
-                    <h2>Premium Feature: PDF Resume Downloads</h2>
-                    <p>
-                        Download your resume and send it straight to the hiring manager. Whatever format you choose,
-                        we've got you covered. TXT downloads are available for free for all users.
-                    </p>
-                </li>
-                <li>
-                    <h2>Robust Text Editor</h2>
-                    <p>
-                        Our text editor has everything you need to customize your resume. Choose different fonts, sizes,
-                        bullets, and much more.
-                    </p>
-                </li>
-                <li>
-                    <h2>Fast, Easy to Use, and Free to Start</h2>
-                    <p>
-                        Our resume builder lets you easily and quickly create this important document using our resume
-                        wizard
-                    </p>
-                </li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="template" id="template">
-        <h1>Explore Our Resume Templates</h1>
-        <p>
-            Crafting a compelling resume is essential for achieving your career aspirations. Our collection of
-            professionally designed resume templates simplifies the process, offering you the perfect foundation to
-            showcase your skills and experiences.
-        </p>
-        <div class="slider">
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="img/University-Student-Resume-Template-web1.jpg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/resume-template-with-photo.jpg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Resume-example-Circulair.1693324156611.svg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Professional-Elite-Resume-1-1.webp" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/Resume-example-Vertical.1693324156611.svg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/University-Student-Resume-Template-web1.jpg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/academic-word-resume-template.png" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="img/resume-template-with-photo.jpg" alt="" />
-                        <button onclick="document.location='resume.html'">Select</button>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- 🤖 Zhi Bot - Floating Chat Button with Dark Grey Theme -->
-
-    <script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js" defer></script>
-    <script src="https://files.bpcontent.cloud/2025/07/01/10/20250701104734-05R1QIZM.js" defer></script>
-
-    <!-- FOOTER START -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-column">
-                <img src="./logo.svg" class="logo" alt="Resume Builder Logo" />
-                <p>Craft professional resumes effortlessly using beautiful templates, fast editing tools, and one-click
-                    downloads.</p>
-                <div class="social-media">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="X (Twitter)">
-                        <i class="fab fa-x-twitter"></i>
-                    </a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/yash--singhal/" aria-label="LinkedIn"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#template">Templates</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="Auth.html">Login</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Contact</h3>
-                <p>Email: support@resumebuilder.com</p>
-                <p>Phone: +1 234 567 890</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Resume Builder. All rights reserved.</p>
-        </div>
-    </footer>
-    <!-- FOOTER END -->
-    <button id="scrollToTopBtn" title="Go to top">
-        <i class="fas fa-arrow-up"></i>
+  <!-- Navbar -->
+  <div class="nav" id="navBar">
+    <button id="cmd" onclick="showDownloadModal()" class="navbtn download" title="Download">
+      <i class="fas fa-download"></i>
     </button>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
-    <script src="script.js"></script>
+    <form>
+      <input type="hidden" id="custinfo" name="custinfo">
+      <button class="navbtn document">
+        <i class="fas fa-save"></i>
+      </button>
+    </form>
 
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            effect: "cards",
-            grabCursor: true,
-        });
-    </script>
+    <button class="navbtn home" onclick="document.location='index.html'">
+      <i class="fas fa-home"></i>
+    </button>
+  </div>
+
+  <!-- Resume -->
+  <div class="resume" id="resume">
+    <section id="print">
+      <!-- Header -->
+      <div class="head">
+        <div class="main">
+          <span class="name" contenteditable="true">YOUR</span>
+          <span contenteditable="true">NAME</span>
+          <div class="post" contenteditable="true">YOUR JOB PROFILE</div>
+        </div>
+
+        <div class="contacts">
+          <span contenteditable="true" class="content">231-3212-2132</span>
+          <span class="symbol"><i class="fas fa-phone"></i></span><br>
+
+          <span contenteditable="true" class="content">samplemail@email.in</span>
+          <span class="symbol"><i class="fas fa-envelope"></i></span><br>
+
+          <span contenteditable="true" class="content">linkedin/username.com</span>
+          <span class="symbol"><i class="fab fa-linkedin"></i></span><br>
+
+          <span contenteditable="true" class="content">sample street-India</span>
+          <span class="symbol"><i class="fas fa-map-marker-alt"></i></span>
+        </div>
+      </div>
+
+      <div class="line"></div>
+
+      <!-- Main Body -->
+      <div class="mainbody">
+        <!-- Left Side -->
+        <div class="leftside">
+          <!-- Skills -->
+          <div class="section-block" draggable="true">
+            <span class="title">MY SKILLS</span><br><br>
+            <div>
+              <div class="skill">
+                <input type="checkbox" class="input-checkbox">
+                <i class="fas fa-chevron-circle-right"></i>
+                <span contenteditable="true">write your skill here</span>
+              </div>
+              <div id="skills"></div>
+              <button type="button" class="btn btn-success" onclick="addskill()">
+                <i class="fas fa-plus-circle"></i> Skill
+              </button>
+              <button type="button" class="btn btn-danger" onclick="remskill(event)">
+                <i class="fas fa-minus-circle"></i> Skill
+              </button>
+            </div>
+          </div>
+
+          <!-- Languages -->
+          <div class="section-block" draggable="true">
+            <br><br><span class="title">LANGUAGES</span><br><br>
+            <div>
+              <div class="language">
+                <input type="checkbox" class="input-checkbox">
+                <span contenteditable="true">LANGNAME</span> - 
+                <span contenteditable="true">level u know</span>
+              </div>
+              <div id="languages"></div>
+              <button type="button" class="btn btn-success" onclick="addLang()">
+                <i class="fas fa-plus-circle"></i> Language
+              </button>
+              <button type="button" class="btn btn-danger" onclick="remLang(event)">
+                <i class="fas fa-minus-circle"></i> Language
+              </button>
+            </div>
+          </div>
+
+          <!-- Achievements -->
+          <div class="section-block" draggable="true">
+            <br><br><span class="title">ACHIEVEMENTS</span><br><br>
+            <div>
+              <div class="achieve">
+                <input type="checkbox" class="input-checkbox">
+                <span contenteditable="true">Write your achievement</span>
+              </div>
+              <div id="achievement"></div>
+              <button type="button" class="btn btn-success" onclick="addAch()">
+                <i class="fas fa-plus-circle"></i> Achievement
+              </button>
+              <button type="button" class="btn btn-danger" onclick="remAch(event)">
+                <i class="fas fa-minus-circle"></i> Achievement
+              </button>
+            </div>
+          </div>
+
+          <!-- Interests -->
+          <div class="section-block" draggable="true">
+            <br><br><span class="title">INTERESTS</span><br><br>
+            <div>
+              <div class="achieve">
+                <input type="checkbox" class="input-checkbox">
+                <span contenteditable="true">Write interest</span>
+              </div>
+              <div id="interest"></div>
+              <button type="button" class="btn btn-success" onclick="addInt()">
+                <i class="fas fa-plus-circle"></i> Interest
+              </button>
+              <button type="button" class="btn btn-danger" onclick="remInt(event)">
+                <i class="fas fa-minus-circle"></i> Interest
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border"></div>
+
+        <!-- Right Side -->
+        <div class="rightside">
+          <!-- Profile -->
+          <div class="section-block" draggable="true">
+            <span class="title">PROFILE</span><br><br>
+            <div contenteditable="true">
+              Here u can write the basic information about your career like your forte, 
+              something about yourself that you want your interviewer to know. Keep it brief.
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="section-block" draggable="true">
+            <br><br><span class="title">EDUCATION</span><br><br>
+            <div id="education">
+              <div class="edublock">
+                <input type="checkbox" class="input-checkbox">
+                <span class="education-head" contenteditable="true">YOUR DEGREE</span>
+                <div>
+                  <span contenteditable="true">Institute name</span> - 
+                  <span contenteditable="true">Passing Year</span>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-success" onclick="addedu()">
+              <i class="fas fa-plus-circle"></i> Education
+            </button>
+            <button type="button" class="btn btn-danger" onclick="remedu(event)">
+              <i class="fas fa-minus-circle"></i> Education
+            </button>
+          </div>
+
+          <!-- New Section -->
+          <div class="section-block" draggable="true">
+            <br><br>
+            <input type="checkbox" class="input-checkbox">
+            <span class="title" contenteditable="true">NEW SECTION</span><br><br>
+            <div contenteditable="true">
+              This is the description part of your new section. Stay under 400 characters.
+            </div>
+            <div id="newsec"></div>
+            <button type="button" class="btn btn-success" onclick="addsec()">
+              <i class="fas fa-plus-circle"></i> Section
+            </button>
+            <button type="button" class="btn btn-danger" onclick="remsec(event)">
+              <i class="fas fa-minus-circle"></i> Section
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Download Modal -->
+  <div id="downloadModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeDownloadModal()" title="Close">&times;</span>
+      <h3 class="modal-title">
+        <i class="fas fa-download"></i> Download or Print Resume
+      </h3>
+      <div class="modal-buttons">
+        <button class="modal-btn pdf" onclick="downloadPDF()">
+          <i class="fas fa-file-pdf"></i> Download as PDF
+        </button>
+        <button class="modal-btn print" onclick="printResume()">
+          <i class="fas fa-print"></i> Print
+        </button>
+      </div>
+      <p class="modal-tip">Tip: For best print results, use Chrome or Edge browsers.</p>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/shepherd.js@8.3.1/dist/js/shepherd.min.js"></script>
+  <script src="script2.js"></script>
+  <script>
+    function showDownloadModal() {
+      document.getElementById("downloadModal").classList.add("active");
+      document.getElementById("resume").classList.add("blur");
+      document.getElementById("navBar").classList.add("blur");
+    }
+
+    function closeDownloadModal() {
+      document.getElementById("downloadModal").classList.remove("active");
+      document.getElementById("resume").classList.remove("blur");
+      document.getElementById("navBar").classList.remove("blur");
+    }
+
+    function downloadPDF() {
+      closeDownloadModal();
+      printpdf(); // Call your PDF export function from script2.js
+    }
+
+    function printResume() {
+      closeDownloadModal();
+      window.print();
+    }
+
+    function logout() {
+      localStorage.removeItem("user");
+      alert("You have been logged out.");
+      window.location.href = "Auth.html";
+    }
+
+    // Display logged-in user's name
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = localStorage.getItem("user");
+      if (user) {
+        document.getElementById("username").textContent = user;
+      }
+    });
+
+    // Drag & Drop script
+    const draggables = document.querySelectorAll(".section-block");
+    const containers = document.querySelectorAll(".leftside, .rightside");
+
+    draggables.forEach(draggable => {
+      draggable.addEventListener("dragstart", () => {
+        draggable.classList.add("dragging");
+      });
+
+      draggable.addEventListener("dragend", () => {
+        draggable.classList.remove("dragging");
+      });
+    });
+
+    containers.forEach(container => {
+      container.addEventListener("dragover", e => {
+        e.preventDefault();
+        const afterElement = getDragAfterElement(container, e.clientY);
+        const draggable = document.querySelector(".dragging");
+        if (afterElement == null) {
+          container.appendChild(draggable);
+        } else {
+          container.insertBefore(draggable, afterElement);
+        }
+      });
+    });
+
+    function getDragAfterElement(container, y) {
+      const draggableElements = [...container.querySelectorAll(".section-block:not(.dragging)")];
+
+      return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+  </script>
 </body>
-
 </html>

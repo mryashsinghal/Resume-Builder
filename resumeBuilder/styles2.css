@@ -71,6 +71,7 @@ font-family: 'Barlow', sans-serif;
     width: 17px;
     height: 17px;
 }
+
 .line
 {
     height: 0.5px;
@@ -78,6 +79,8 @@ font-family: 'Barlow', sans-serif;
     margin: 25px 0;
     margin-bottom: 50px;
 }
+
+/*Main Body*/
 .mainbody
 {
     display: grid;
@@ -288,3 +291,23 @@ transform: translate(-60%,-4.8%);
     width: 100% !important;
   }
 }
+/* Remove ALL top margins from blocks when reordered */
+.leftside > .section-block,
+.rightside > .section-block {
+  margin-top: 0 !important;
+}
+
+/* Ensure consistent spacing only below */
+.section-block {
+  margin-bottom: 20px;
+}
+
+/* Kill any placeholder spacing during drag */
+.ui-sortable-placeholder,
+.sortable-placeholder {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 0 !important;
+  border: none !important;
+}
+
