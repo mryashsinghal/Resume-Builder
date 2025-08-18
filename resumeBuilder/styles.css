@@ -205,9 +205,10 @@ span {
     position: absolute;
     left: 100px;
     top: 55px;
-    overflow: hidden;
+    overflow:-y;
     padding: 10px;
     transition: 0.7s;
+    color: #000;
 }
 
 .swiper:hover {
@@ -218,11 +219,16 @@ span {
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background-color:black;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 25px;
+    
+}
+.button{
+   color: #000;
+  background-color: red;
 }
 
 .swiper-slide img {
@@ -274,10 +280,10 @@ span {
     margin: 20px 10px;
     font-weight: bold;
     border: none;
-    background: transparent;
-    color: #fff;
+    background:rgb(0, 255, 153);
+    color:black;
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: 30px;
     transition: 0.7s;
 }
 
