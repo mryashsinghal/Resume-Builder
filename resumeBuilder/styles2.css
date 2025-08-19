@@ -300,6 +300,14 @@ transform: translate(-60%,-4.8%);
 /* Ensure consistent spacing only below */
 .section-block {
   margin-bottom: 20px;
+  border: 2px solid transparent; /* baseline border */
+  transition: border-color 0.3s ease, border-width 0.3s ease;
+  padding:5px;
+}
+
+.section-block:hover {
+  border: 2px solid greenyellow;
+  border-radius: 5px;
 }
 
 /* Kill any placeholder spacing during drag */
