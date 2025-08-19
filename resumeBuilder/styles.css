@@ -358,7 +358,7 @@ span {
   margin-left: 100px;
    margin-right: 50px;
     flex: 1;
-    
+    gap: 40px;
     padding: 0 15px;
 }
 
@@ -378,7 +378,7 @@ span {
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -12px;
     width: 40px;
     height: 2px;
     background: #009688;
