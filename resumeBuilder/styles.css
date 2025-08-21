@@ -285,22 +285,12 @@ span {
     background: #009688;
 }
 
-.bpFab {
-  left: 20px !important;
-  right: auto !important;
-}
-
-.bpWebchat {
-  left: 20px !important;
-  right: auto !important;
-}
-
 .footer {
     background-color: #0a0a0a;
     color: #fff;
     padding: 60px 20px 40px;
     font-family: 'Inter', sans-serif;
-    border-top: 4px solid #009688;
+    border-top: 0.5px solid #009688!important;
     position: relative;
 }
 #scrollToTopBtn {
@@ -335,12 +325,11 @@ span {
 }
 
 .footer-container {
-    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 50px;
+    gap:20px;
 }
 #scrollToTopBtn {
   display: none; 
@@ -366,8 +355,10 @@ span {
 }
 
 .footer-column {
+  margin-left: 100px;
+   margin-right: 50px;
     flex: 1;
-    min-width: 200px;
+    gap: 40px;
     padding: 0 15px;
 }
 
@@ -379,7 +370,7 @@ span {
     font-weight: 600;
     letter-spacing: 0.5px;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
 }
 
 .footer-column h2::after,
@@ -387,7 +378,7 @@ span {
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -12px;
     width: 40px;
     height: 2px;
     background: #009688;
