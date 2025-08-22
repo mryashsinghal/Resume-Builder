@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me</title>
+  <link rel="stylesheet" href="contact.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <div class="maincontainer">
+    <div class="nav-bar">
+        <img src="./logo.svg" class="logo" alt="Company Logo" />
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Templates</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Testimonial</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="Auth.html">Sign Up</a></li>
+        </ul>
+    </div>
+    <div class="contact-section">
+        <div class="contact-image">
+        <img src="./img/contact.png" alt="Contact Illustration" />
+        </div>
+
+        <div class="contact-form-container">
+        <h1>Contact Me</h1>
+        <p>Have a question or project idea? Let’s talk!</p>
+
+        <form id="contact-form">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+            <p id="form-response" class="response"></p>
+        </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <img src="./logo.svg" class="logo" alt="Resume Builder Logo" />
+                    <p>Craft professional resumes effortlessly using beautiful templates, fast editing tools, and one-click
+                        downloads.</p>
+                    <div class="social-media">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="X (Twitter)">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/yash--singhal/" aria-label="LinkedIn"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#template">Templates</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="Auth.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Email: support@resumebuilder.com</p>
+                    <p>Phone: +1 234 567 890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Resume Builder. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+    
+  <script>
+    const form = document.getElementById('contact-form');
+    const responseEl = document.getElementById('form-response');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('https://formspree.io/f/mkgzvlod', {
+          method: 'POST',
+          headers: {
+            Accept: 'application/json'
+          },
+          body: formData
+        });
+
+        if (response.ok) {
+          responseEl.textContent = '✅ Query submitted successfully!';
+          responseEl.style.color = '#00ff88';
+          form.reset();
+        } else {
+          responseEl.textContent = '❌ Something went wrong. Please try again.';
+          responseEl.style.color = 'red';
+        }
+      } catch (error) {
+        responseEl.textContent = '❌ Network error. Please try again.';
+        responseEl.style.color = 'red';
+      }
+    });
+  </script>
+</body>
+</html>

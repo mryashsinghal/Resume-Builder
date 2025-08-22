@@ -168,3 +168,123 @@ transform: translate(-60%,-4.8%);
     font-size: 17px;
 }
 
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+.modal.active {
+  display: flex;
+}
+.modal-content {
+  background: #fff;
+  margin: auto;
+  padding: 32px 32px 24px 32px;
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+  animation: modalIn 0.2s;
+}
+@keyframes modalIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close:hover {
+  color: #e74c3c;
+}
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.modal-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+.modal-btn {
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 0;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.modal-btn.pdf {
+  background: #e74c3c;
+  color: #fff;
+}
+.modal-btn.pdf:hover {
+  background: #c0392b;
+}
+.modal-btn.print {
+  background: #27ae60;
+  color: #fff;
+}
+.modal-btn.print:hover {
+  background: #219150;
+}
+.modal-tip {
+  color: #888;
+  font-size: 0.98rem;
+  margin-top: 10px;
+}
+
+/* Blur effect for background when modal is open */
+.blur {
+  filter: blur(5px) grayscale(0.1);
+  pointer-events: none;
+  user-select: none;
+}
+
+@media print {
+  #navBar,
+  .nav,
+  #downloadModal,
+  .modal,
+  .modal-content {
+    display: none !important;
+  }
+  body, html {
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .resume {
+    box-shadow: none !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+}

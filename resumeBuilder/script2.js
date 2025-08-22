@@ -6,7 +6,8 @@ const tour = new Shepherd.Tour({
         },
         classes: 'shepherd-theme-default',
         scrollTo: { behavior: 'smooth', block: 'center' }
-    }
+    },
+ 
 });
 
 //Helper function to add Skip button to steps
@@ -128,6 +129,7 @@ window.onload = () => {
 };
 
 function printpdf() {
+    const token = localStorage.getItem("token");
     var content = document.getElementById("resume");
 
     const allButtons = document.querySelectorAll("#print button");
@@ -137,18 +139,31 @@ function printpdf() {
     let allInputCheckboxes = document.querySelectorAll(".input-checkbox");
     allInputCheckboxes.forEach(input => {
         input.classList.add("none");
-    })
-
-    allButtons.forEach(button => {
-        button.classList.remove("none");
-    })
-    allInputCheckboxes.forEach(input => {
-        input.classList.remove("none");
-    })
-
-    html2pdf(content, {
-        html2canvas: { scale: 1, logging: true, dpi: 500 }
     });
+
+    if (token === null) {
+        alert("Please login to download your resume!");
+        // Show elements again if login fails
+        allButtons.forEach(button => {
+            button.classList.remove("none");
+        });
+        allInputCheckboxes.forEach(input => {
+            input.classList.remove("none");
+        });
+        return;
+    } else {
+        html2pdf(content, {
+            html2canvas: { scale: 1, logging: true, dpi: 500 }
+        }).then(() => {
+            // Show elements again after PDF is generated
+            allButtons.forEach(button => {
+                button.classList.remove("none");
+            });
+            allInputCheckboxes.forEach(input => {
+                input.classList.remove("none");
+            });
+        });
+    }
 }
 
 function addedu() {
