@@ -1,0 +1,6 @@
+blank_issues_enabled: false
+
+contact_links: []
+
+# This file ensures a dropdown menu appears when users click "New Issue".
+# Templates listed here are automatically detected from the markdown files.
