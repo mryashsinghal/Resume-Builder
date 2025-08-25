@@ -252,3 +252,52 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 });
+
+// Testimonial Slider Logic
+let slideIndex = 0;
+const slides = document.querySelectorAll(".testimonial-slide");
+const prevBtn = document.querySelector(".testimonial-prev");
+const nextBtn = document.querySelector(".testimonial-next");
+const dotsContainer = document.querySelector(".testimonial-dots");
+
+// Create dots dynamically
+slides.forEach((_, index) => {
+  let dot = document.createElement("span");
+  dot.classList.add("dot");
+  dot.addEventListener("click", () => showSlide(index));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".testimonial-dots .dot");
+
+function showSlide(n) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    dots[i].classList.remove("active");
+  });
+
+  slides[n].classList.add("active");
+  dots[n].classList.add("active");
+  slideIndex = n;
+}
+
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+
+function prevSlide() {
+  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+  showSlide(slideIndex);
+}
+
+// Event Listeners
+if (prevBtn) prevBtn.addEventListener("click", prevSlide);
+if (nextBtn) nextBtn.addEventListener("click", nextSlide);
+
+// Auto-slide every 5 seconds
+setInterval(nextSlide, 5000);
+
+// Initialize first slide
+showSlide(slideIndex);
+
