@@ -205,9 +205,10 @@ span {
     position: absolute;
     left: 100px;
     top: 55px;
-    overflow: hidden;
+    overflow:-y;
     padding: 10px;
     transition: 0.7s;
+    color: #000;
 }
 
 .swiper:hover {
@@ -218,11 +219,16 @@ span {
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background-color:black;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 25px;
+    
+}
+.button{
+   color: #000;
+  background-color: red;
 }
 
 .swiper-slide img {
@@ -274,16 +280,29 @@ span {
     margin: 20px 10px;
     font-weight: bold;
     border: none;
-    background: transparent;
-    color: #fff;
+    background: linear-gradient(135deg, #434343, #000000); 
+    color: white;
     cursor: pointer;
-    border-radius: 15px;
-    transition: 0.7s;
+    border-radius: 30px;
+    transition: 0.4s ease;
 }
 
 .swiper-slide button:hover {
-    background: #009688;
+    background: linear-gradient(135deg, #009688, #004d40);
 }
+
+
+
+.bpFab {
+  left: 20px !important;
+  right: auto !important;
+}
+
+.bpWebchat {
+  left: 20px !important;
+  right: auto !important;
+}
+
 
 .footer {
     background-color: #0a0a0a;
