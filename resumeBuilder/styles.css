@@ -280,16 +280,17 @@ span {
     margin: 20px 10px;
     font-weight: bold;
     border: none;
-    background:rgb(0, 255, 153);
-    color:black;
+    background: linear-gradient(135deg, #434343, #000000); 
+    color: white;
     cursor: pointer;
     border-radius: 30px;
-    transition: 0.7s;
+    transition: 0.4s ease;
 }
 
 .swiper-slide button:hover {
-    background: #009688;
+    background: linear-gradient(135deg, #009688, #004d40);
 }
+
 
 .bpFab {
   left: 20px !important;
