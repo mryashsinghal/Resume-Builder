@@ -139,7 +139,7 @@ span {
 .aboutcon h1 {
     font-size: 45px;
     margin-bottom: 45px;
-    color: #009688;
+    color: #15ffc8;
 }
 
 .aboutcon li {
@@ -205,9 +205,10 @@ span {
     position: absolute;
     left: 100px;
     top: 55px;
-    overflow: hidden;
+    overflow:-y;
     padding: 10px;
     transition: 0.7s;
+    color: #000;
 }
 
 .swiper:hover {
@@ -218,11 +219,16 @@ span {
 .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background-color:black;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 25px;
+    
+}
+.button{
+   color: #000;
+  background-color: red;
 }
 
 .swiper-slide img {
@@ -274,16 +280,18 @@ span {
     margin: 20px 10px;
     font-weight: bold;
     border: none;
-    background: transparent;
-    color: #fff;
+    background: linear-gradient(135deg, #434343, #000000); 
+    color: white;
     cursor: pointer;
-    border-radius: 15px;
-    transition: 0.7s;
+    border-radius: 30px;
+    transition: 0.4s ease;
 }
 
 .swiper-slide button:hover {
-    background: #009688;
+    background: linear-gradient(135deg, #009688, #004d40);
 }
+
+
 
 .bpFab {
   left: 20px !important;
@@ -295,12 +303,13 @@ span {
   right: auto !important;
 }
 
+
 .footer {
     background-color: #0a0a0a;
     color: #fff;
     padding: 60px 20px 40px;
     font-family: 'Inter', sans-serif;
-    border-top: 4px solid #009688;
+    border-top: 0.5px solid #009688!important;
     position: relative;
 }
 #scrollToTopBtn {
@@ -335,12 +344,11 @@ span {
 }
 
 .footer-container {
-    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 50px;
+    gap:20px;
 }
 #scrollToTopBtn {
   display: none; 
@@ -351,12 +359,12 @@ span {
   font-size: 18px;
   border: none;
   outline: none;
-  background-color: #00ffd1;
+  background-color: #009688;
   color: black;
   cursor: pointer;
   padding: 14px;
   border-radius: 50%;
-  box-shadow: 0 0 10px #00ffd1, 0 0 20px #00ffd1;
+  box-shadow: 0 0 10px #009688, 0 0 20px #009688;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -366,8 +374,10 @@ span {
 }
 
 .footer-column {
+  margin-left: 100px;
+   margin-right: 50px;
     flex: 1;
-    min-width: 200px;
+    gap: 40px;
     padding: 0 15px;
 }
 
@@ -379,7 +389,7 @@ span {
     font-weight: 600;
     letter-spacing: 0.5px;
     position: relative;
-    padding-bottom: 10px;
+    padding-bottom: 0px;
 }
 
 .footer-column h2::after,
@@ -387,7 +397,7 @@ span {
     content: '';
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: -12px;
     width: 40px;
     height: 2px;
     background: #009688;
@@ -466,7 +476,7 @@ span {
 }
 
 .footer-column ul li a:hover {
-    color: #00bcd4;
+    color: #009688;
     transform: translateX(5px);
 }
 
@@ -549,4 +559,136 @@ span {
 .social-media a[aria-label="YouTube"]:hover {
     color: #ff0000;
     /* YouTube Red */
+}
+
+/* Testimonial Section - Themed */
+.testimonial-section {
+  padding: 80px 20px;
+  background: #0a0a0a; /* dark section */
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.testimonial-heading {
+  font-size: 2.2rem;
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: #15ffc8; /* aqua accent */
+  text-transform: uppercase;
+  position: relative;
+}
+
+.testimonial-heading::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: #009688;
+  display: block;
+  margin: 12px auto 0;
+  border-radius: 2px;
+}
+
+.testimonial-slider {
+  max-width: 850px;
+  margin: auto;
+  position: relative;
+}
+
+.testimonial-slide {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 150, 136, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.testimonial-slide.active {
+  display: block;
+}
+
+.testimonial-slide img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #009688;
+  box-shadow: 0 0 15px rgba(0, 150, 136, 0.7);
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #e0e0e0;
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #15ffc8;
+}
+
+.testimonial-role {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Controls */
+.testimonial-controls {
+  margin-top: 25px;
+}
+
+.testimonial-controls .prev,
+.testimonial-controls .next {
+  cursor: pointer;
+  font-size: 28px;
+  margin: 0 20px;
+  color: #15ffc8;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.testimonial-controls .prev:hover,
+.testimonial-controls .next:hover {
+  color: #009688;
+  text-shadow: 0 0 10px #009688;
+}
+
+/* Dots */
+.testimonial-dots {
+  margin-top: 20px;
+}
+
+.testimonial-dots span {
+  cursor: pointer;
+  height: 14px;
+  width: 14px;
+  margin: 0 6px;
+  background-color: #cba9a9;
+  border-radius: 50%;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+}
+
+.testimonial-dots span.active {
+  background-color: #009688;
+  box-shadow: 0 0 10px #15ffc8, 0 0 20px #009688;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
